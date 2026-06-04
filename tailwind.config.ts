@@ -56,14 +56,14 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				amur: {
-					dark: '#0a0f1e',
-					navy: '#0d1b3e',
-					blue: '#1a3a6e',
-					orange: '#ff6b2b',
-					amber: '#f59e0b',
-					teal: '#0ea5e9',
-					light: '#e8f4fd',
+				ant: {
+					dark: '#080614',
+					navy: '#0e0b1f',
+					purple: '#7c3aed',
+					violet: '#8b5cf6',
+					cyan: '#06b6d4',
+					sky: '#38bdf8',
+					light: '#e8f0fd',
 				}
 			},
 			borderRadius: {
