@@ -195,7 +195,7 @@ export default function Index() {
           <h1 className={`font-oswald text-5xl md:text-7xl font-bold leading-tight mb-4 transition-all duration-1000 delay-200 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
             <span className="text-white text-6xl">ОТДЫХАЙТЕ</span>
             <br />
-            <span className="text-gradient text-6xl">СПОКОЙНО —</span>
+            <span className="text-gradient font-black">рппо</span>
             <br />
             <span className="text-white text-6xl">МЫ ПОЗАБОТИМСЯ</span>
             <br />
