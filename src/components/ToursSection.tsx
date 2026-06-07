@@ -1,5 +1,8 @@
+import { useState, useRef } from "react";
 import Icon from "@/components/ui/icon";
 import { ROUTES, GALLERY_ITEMS, REVIEWS, PEOPLE_IMG, FilterState } from "@/components/data";
+
+const UPLOAD_URL = "https://functions.poehali.dev/e7bde577-c2bc-4642-88ca-469c32fe02a6";
 
 interface ToursSectionProps {
   filters: FilterState;
@@ -23,6 +26,8 @@ const difficultyColor = (d: string) => {
   return "text-purple-400 bg-purple-400/10";
 };
 
+type GallerySlot = { img: string | null; label: string };
+
 export default function ToursSection({
   filters, setFilters,
   priceFrom, setPriceFrom,
@@ -32,6 +37,42 @@ export default function ToursSection({
   hotel, setHotel,
   onBookRoute,
 }: ToursSectionProps) {
+  const [gallery, setGallery] = useState<GallerySlot[]>(
+    GALLERY_ITEMS.map((item) => ({ img: null, label: item.label }))
+  );
+  const [uploading, setUploading] = useState<number | null>(null);
+  const fileInputRefs = useRef<(HTMLInputElement | null)[]>([]);
+
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setUploading(index);
+
+    const reader = new FileReader();
+    reader.onload = async () => {
+      const base64 = reader.result as string;
+      try {
+        const res = await fetch(UPLOAD_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ image: base64, label: gallery[index].label, slot_index: index }),
+        });
+        const data = await res.json();
+        setGallery((prev) => {
+          const next = [...prev];
+          next[index] = { img: data.url, label: gallery[index].label };
+          return next;
+        });
+      } catch {
+        alert("Ошибка загрузки. Попробуйте ещё раз.");
+      } finally {
+        setUploading(null);
+      }
+    };
+    reader.readAsDataURL(file);
+  };
+
   const filteredRoutes = ROUTES.filter((r) => {
     if (filters.duration !== "все") {
       if (filters.duration === "1-7" && !(r.duration >= 1 && r.duration <= 7)) return false;
@@ -263,16 +304,50 @@ export default function ToursSection({
             <div className="w-16 h-1 bg-gradient-to-r from-[#7c3aed] to-[#06b6d4] mx-auto rounded-full" />
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {GALLERY_ITEMS.map((item, i) => (
+            {gallery.map((slot, i) => (
               <div
                 key={i}
                 className="relative overflow-hidden rounded-2xl group reveal opacity-0-init animate-scale-in"
                 style={{ animationDelay: `${i * 0.1}s` }}
               >
-                <div className="w-full h-48 md:h-56 glass flex flex-col items-center justify-center gap-3 border-2 border-dashed border-white/10 hover:border-[#7c3aed]/40 transition-colors cursor-pointer">
-                  <Icon name="ImagePlus" size={28} className="text-gray-600" />
-                  <span className="text-gray-500 text-xs">{item.label}</span>
-                </div>
+                <input
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  ref={(el) => { fileInputRefs.current[i] = el; }}
+                  onChange={(e) => handleFileChange(e, i)}
+                />
+
+                {slot.img ? (
+                  <div className="relative w-full h-48 md:h-56 cursor-pointer" onClick={() => fileInputRefs.current[i]?.click()}>
+                    <img src={slot.img} alt={slot.label} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2">
+                      <Icon name="RefreshCw" size={22} className="text-white" />
+                      <span className="text-white text-xs font-medium">Заменить фото</span>
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent">
+                      <span className="text-white text-xs font-medium">{slot.label}</span>
+                    </div>
+                  </div>
+                ) : (
+                  <div
+                    className="w-full h-48 md:h-56 glass flex flex-col items-center justify-center gap-3 border-2 border-dashed border-white/10 hover:border-[#7c3aed]/50 transition-all cursor-pointer"
+                    onClick={() => fileInputRefs.current[i]?.click()}
+                  >
+                    {uploading === i ? (
+                      <>
+                        <Icon name="Loader" size={28} className="text-[#7c3aed] animate-spin" />
+                        <span className="text-gray-400 text-xs">Загрузка...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Icon name="ImagePlus" size={28} className="text-gray-500 group-hover:text-[#7c3aed] transition-colors" />
+                        <span className="text-gray-500 text-xs text-center px-2">{slot.label}</span>
+                        <span className="text-[#7c3aed]/60 text-xs">Нажмите, чтобы загрузить</span>
+                      </>
+                    )}
+                  </div>
+                )}
               </div>
             ))}
           </div>
