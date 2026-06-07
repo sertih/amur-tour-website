@@ -192,14 +192,11 @@ export default function Index() {
             </div>
           </div>
 
-          <h1 className={`font-oswald text-5xl md:text-7xl font-bold leading-tight mb-4 transition-all duration-1000 delay-200 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            <span className="text-white">ОТДЫХАЙТЕ</span>
-            <br />
-            <span className="text-gradient">СПОКОЙНО —</span>
-            <br />
-            <span className="text-white">МЫ ПОЗАБОТИМСЯ</span>
-            <br />
-            <span className="text-gradient">ОБО ВСЁМ</span>
+          <h1 className={`font-oswald text-5xl md:text-7xl font-bold leading-[1.15] mb-4 transition-all duration-1000 delay-200 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+            <span className="text-white block">ОТДЫХАЙТЕ</span>
+            <span className="text-gradient block">СПОКОЙНО —</span>
+            <span className="text-white block">МЫ ПОЗАБОТИМСЯ</span>
+            <span className="text-gradient block">ОБО ВСЁМ</span>
           </h1>
 
           <p className={`text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed transition-all duration-1000 delay-300 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
