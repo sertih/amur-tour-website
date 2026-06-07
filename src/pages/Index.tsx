@@ -192,11 +192,18 @@ export default function Index() {
             </div>
           </div>
 
-          <h1 className={`font-oswald text-5xl md:text-7xl font-bold leading-[1.15] mb-4 transition-all duration-1000 delay-200 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            <span className="text-white block text-7xl">ОТДЫХАЙТЕ</span>
-            <span className="text-gradient block text-7xl">СПОКОЙНО —</span>
-            <span className="text-white block text-7xl">МЫ ПОЗАБОТИМСЯ</span>
-            <span className="text-gradient block text-7xl">ОБО ВСЁМ</span>
+          <h1 className={`font-oswald font-bold mb-6 transition-all duration-1000 delay-200 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+            style={{ textShadow: "0 2px 20px rgba(0,0,0,0.8)" }}
+          >
+            <span className="block text-3xl md:text-5xl text-white/80 tracking-widest uppercase mb-1">Отдыхайте спокойно —</span>
+            <span className="block text-4xl md:text-6xl uppercase" style={{
+              background: "linear-gradient(135deg, #a78bfa 0%, #38bdf8 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              lineHeight: 1.2,
+            }}>мы позаботимся</span>
+            <span className="block text-5xl md:text-7xl text-white uppercase tracking-tight" style={{ lineHeight: 1.1 }}>обо всём</span>
           </h1>
 
           <p className={`text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed transition-all duration-1000 delay-300 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
