@@ -38,7 +38,10 @@ export default function ToursSection({
   onBookRoute,
 }: ToursSectionProps) {
   const [gallery, setGallery] = useState<GallerySlot[]>(
-    GALLERY_ITEMS.map((item) => ({ img: null, label: item.label }))
+    GALLERY_ITEMS.map((item, i) => ({
+      img: i === 0 ? "https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/bucket/80c8a3ae-5cb2-4863-9d8e-e4d8420f9d19.jpg" : null,
+      label: item.label,
+    }))
   );
   const [uploading, setUploading] = useState<number | null>(null);
   const fileInputRefs = useRef<(HTMLInputElement | null)[]>([]);
