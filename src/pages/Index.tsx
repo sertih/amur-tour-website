@@ -91,7 +91,7 @@ export default function Index() {
           ))}
         </div>
 
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto rounded-[0.25rem]">
+        <div className="relative z-10 text-left px-4 max-w-5xl mx-auto rounded-[0.25rem]">
           <div className={`transition-all duration-1000 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
             <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-6 text-sm text-[#06b6d4] font-medium">
               <Icon name="Globe" size={14} />
@@ -114,12 +114,12 @@ export default function Index() {
             <span className="block text-5xl md:text-7xl text-white uppercase tracking-tight" style={{ lineHeight: 1.1 }}>обо всём</span>
           </h1>
 
-          <p className={`text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed transition-all duration-1000 delay-300 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+          <p className={`text-lg md:text-xl text-gray-300 max-w-2xl mb-10 leading-relaxed transition-all duration-1000 delay-300 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
             Подбираем отдых под ваши пожелания, контролируем все детали поездки
             и остаёмся на связи, когда это важно.
           </p>
 
-          <div className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-500 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+          <div className={`flex flex-col sm:flex-row gap-4 justify-start transition-all duration-1000 delay-500 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
             <button onClick={() => scrollTo("routes")} className="btn-primary px-8 py-4 rounded-xl font-oswald text-lg uppercase tracking-wide">
               Подобрать тур
             </button>
