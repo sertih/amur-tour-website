@@ -137,20 +137,6 @@ export default function ToursSection({
                 </div>
               </div>
 
-              <div>
-                <label className="text-xs text-gray-400 mb-2 block uppercase tracking-wide">Отель</label>
-                <div className="relative">
-                  <Icon name="Building2" size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
-                  <input
-                    type="text"
-                    placeholder="Название отеля"
-                    value={hotel}
-                    onChange={(e) => setHotel(e.target.value)}
-                    className="w-full glass rounded-lg pl-8 pr-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-[#7c3aed]/60 transition-all"
-                  />
-                </div>
-              </div>
-
               <div className="flex items-end">
                 <button
                   onClick={resetFilters}
@@ -262,17 +248,7 @@ export default function ToursSection({
                 <img src={PEOPLE_IMG} alt="О компании" className="w-full h-96 object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#080614]/60 to-transparent" />
               </div>
-              <div className="absolute -bottom-6 -left-6 glass rounded-2xl p-4 hidden md:block">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#7c3aed] to-[#06b6d4] flex items-center justify-center">
-                    <Icon name="Award" size={24} className="text-white" />
-                  </div>
-                  <div>
-                    <div className="font-oswald font-bold text-lg">ТОП-5</div>
-                    <div className="text-xs text-gray-400">агентств России 2024</div>
-                  </div>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
@@ -290,18 +266,12 @@ export default function ToursSection({
             {GALLERY_ITEMS.map((item, i) => (
               <div
                 key={i}
-                className="relative overflow-hidden rounded-2xl cursor-pointer group reveal opacity-0-init animate-scale-in"
+                className="relative overflow-hidden rounded-2xl group reveal opacity-0-init animate-scale-in"
                 style={{ animationDelay: `${i * 0.1}s` }}
               >
-                <img src={item.img} alt={item.label} className="w-full h-48 md:h-56 object-cover transition-transform duration-500 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                  <span className="text-white font-medium text-sm">{item.label}</span>
-                </div>
-                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="glass rounded-full p-2">
-                    <Icon name="ZoomIn" size={14} className="text-white" />
-                  </div>
+                <div className="w-full h-48 md:h-56 glass flex flex-col items-center justify-center gap-3 border-2 border-dashed border-white/10 hover:border-[#7c3aed]/40 transition-colors cursor-pointer">
+                  <Icon name="ImagePlus" size={28} className="text-gray-600" />
+                  <span className="text-gray-500 text-xs">{item.label}</span>
                 </div>
               </div>
             ))}
@@ -345,7 +315,7 @@ export default function ToursSection({
           <div className="text-center mt-10 reveal opacity-0-init animate-fade-up">
             <div className="inline-flex items-center gap-3 glass rounded-2xl px-8 py-4">
               <div>
-                <div className="font-oswald text-4xl font-bold text-gradient">5.0</div>
+                <div className="font-oswald text-4xl font-bold text-gradient">4.9</div>
                 <div className="text-xs text-gray-400">средняя оценка</div>
               </div>
               <div className="w-px h-12 bg-white/10" />
