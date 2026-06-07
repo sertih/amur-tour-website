@@ -222,7 +222,7 @@ export default function Index() {
             ].map((s) => (
               <div key={s.label}>
                 <div className="font-oswald text-2xl md:text-3xl font-bold text-gradient">{s.value}</div>
-                <div className="text-xs md:text-sm text-gray-400 mt-1">{s.label}</div>
+                <div className="">{s.label}</div>
               </div>
             ))}
           </div>
