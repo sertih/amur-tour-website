@@ -69,6 +69,11 @@ export default function Index() {
   const [activeSection, setActiveSection] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
   const [filters, setFilters] = useState<FilterState>({ type: "все", duration: "все", price: "все", difficulty: "все" });
+  const [priceFrom, setPriceFrom] = useState("");
+  const [priceTo, setPriceTo] = useState("");
+  const [cityFrom, setCityFrom] = useState("");
+  const [country, setCountry] = useState("");
+  const [hotel, setHotel] = useState("");
   const [heroLoaded, setHeroLoaded] = useState(false);
   const [bookingForm, setBookingForm] = useState({ name: "", phone: "", route: "", date: "", people: "2" });
   const [contactForm, setContactForm] = useState({ name: "", email: "", message: "" });
@@ -86,18 +91,13 @@ export default function Index() {
   };
 
   const filteredRoutes = ROUTES.filter((r) => {
-    if (filters.type !== "все" && r.type !== filters.type) return false;
-    if (filters.difficulty !== "все" && r.difficulty !== filters.difficulty) return false;
     if (filters.duration !== "все") {
       if (filters.duration === "1-7" && !(r.duration >= 1 && r.duration <= 7)) return false;
       if (filters.duration === "8-12" && !(r.duration >= 8 && r.duration <= 12)) return false;
       if (filters.duration === "13+" && r.duration < 13) return false;
     }
-    if (filters.price !== "все") {
-      if (filters.price === "до 60к" && r.price > 60000) return false;
-      if (filters.price === "60-120к" && !(r.price >= 60000 && r.price <= 120000)) return false;
-      if (filters.price === "120к+" && r.price < 120000) return false;
-    }
+    if (priceFrom && r.price < Number(priceFrom)) return false;
+    if (priceTo && r.price > Number(priceTo)) return false;
     return true;
   });
 
@@ -192,15 +192,19 @@ export default function Index() {
             </div>
           </div>
 
-          <h1 className={`font-oswald text-6xl md:text-8xl font-bold leading-none mb-4 transition-all duration-1000 delay-200 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            <span className="text-white">АВИА НЕКСТ</span>
+          <h1 className={`font-oswald text-5xl md:text-7xl font-bold leading-tight mb-4 transition-all duration-1000 delay-200 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+            <span className="text-white">ОТДЫХАЙТЕ</span>
             <br />
-            <span className="text-gradient">ТУР</span>
+            <span className="text-gradient">СПОКОЙНО —</span>
+            <br />
+            <span className="text-white">МЫ ПОЗАБОТИМСЯ</span>
+            <br />
+            <span className="text-gradient">ОБО ВСЁМ</span>
           </h1>
 
           <p className={`text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed transition-all duration-1000 delay-300 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            Ваш надёжный партнёр в мире путешествий. Авиабилеты, туры, визы и страховки —
-            всё в одном месте.
+            Подбираем отдых под ваши пожелания, контролируем все детали поездки
+            и остаёмся на связи, когда это важно.
           </p>
 
           <div className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-500 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
@@ -213,20 +217,6 @@ export default function Index() {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 glass-dark">
-          <div className="max-w-7xl mx-auto px-4 py-6 grid grid-cols-3 gap-4 text-center">
-            {[
-              { value: "12 000+", label: "Довольных клиентов" },
-              { value: "80+", label: "Направлений" },
-              { value: "10 лет", label: "На рынке туризма" },
-            ].map((s) => (
-              <div key={s.label}>
-                <div className="font-oswald text-2xl md:text-3xl font-bold text-gradient">{s.value}</div>
-                <div className="">{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* TOURS */}
@@ -240,36 +230,107 @@ export default function Index() {
 
           {/* Filters */}
           <div className="glass rounded-2xl p-6 mb-10 reveal opacity-0-init animate-fade-up animate-delay-200">
-            <div className="flex items-center gap-2 mb-4 text-[#06b6d4]">
+            <div className="flex items-center gap-2 mb-5 text-[#06b6d4]">
               <Icon name="SlidersHorizontal" size={18} />
               <span className="font-medium">Фильтры туров</span>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[
-                { key: "type", label: "Тип тура", opts: ["все", "пляжный", "экзотика", "романтика", "экскурсионный"] },
-                { key: "duration", label: "Длительность", opts: ["все", "1-7", "8-12", "13+"] },
-                { key: "price", label: "Цена", opts: ["все", "до 60к", "60-120к", "120к+"] },
-                { key: "difficulty", label: "Комфорт", opts: ["все", "лёгкий", "средний"] },
-              ].map((f) => (
-                <div key={f.key}>
-                  <label className="text-xs text-gray-400 mb-2 block uppercase tracking-wide">{f.label}</label>
-                  <div className="flex flex-wrap gap-1">
-                    {f.opts.map((o) => (
-                      <button
-                        key={o}
-                        onClick={() => setFilters((prev) => ({ ...prev, [f.key]: o }))}
-                        className={`text-xs px-3 py-1.5 rounded-lg font-medium transition-all capitalize ${
-                          filters[f.key as keyof FilterState] === o
-                            ? "bg-gradient-to-r from-[#7c3aed] to-[#06b6d4] text-white"
-                            : "glass text-gray-300 hover:text-white"
-                        }`}
-                      >
-                        {o === "лёгкий" ? "стандарт" : o === "средний" ? "комфорт" : o}
-                      </button>
-                    ))}
-                  </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+              {/* Длительность */}
+              <div>
+                <label className="text-xs text-gray-400 mb-2 block uppercase tracking-wide">Длительность</label>
+                <div className="flex flex-wrap gap-1">
+                  {["все", "1-7", "8-12", "13+"].map((o) => (
+                    <button
+                      key={o}
+                      onClick={() => setFilters((prev) => ({ ...prev, duration: o }))}
+                      className={`text-xs px-3 py-1.5 rounded-lg font-medium transition-all ${
+                        filters.duration === o
+                          ? "bg-gradient-to-r from-[#7c3aed] to-[#06b6d4] text-white"
+                          : "glass text-gray-300 hover:text-white"
+                      }`}
+                    >
+                      {o === "все" ? "все" : `${o} дн.`}
+                    </button>
+                  ))}
                 </div>
-              ))}
+              </div>
+
+              {/* Цена от/до */}
+              <div>
+                <label className="text-xs text-gray-400 mb-2 block uppercase tracking-wide">Цена (₽)</label>
+                <div className="flex gap-2">
+                  <input
+                    type="number"
+                    placeholder="от"
+                    value={priceFrom}
+                    onChange={(e) => setPriceFrom(e.target.value)}
+                    className="w-full glass rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-[#7c3aed]/60 transition-all"
+                  />
+                  <input
+                    type="number"
+                    placeholder="до"
+                    value={priceTo}
+                    onChange={(e) => setPriceTo(e.target.value)}
+                    className="w-full glass rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-[#7c3aed]/60 transition-all"
+                  />
+                </div>
+              </div>
+
+              {/* Город вылета */}
+              <div>
+                <label className="text-xs text-gray-400 mb-2 block uppercase tracking-wide">Город вылета</label>
+                <div className="relative">
+                  <Icon name="PlaneTakeoff" size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+                  <input
+                    type="text"
+                    placeholder="Например, Москва"
+                    value={cityFrom}
+                    onChange={(e) => setCityFrom(e.target.value)}
+                    className="w-full glass rounded-lg pl-8 pr-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-[#7c3aed]/60 transition-all"
+                  />
+                </div>
+              </div>
+
+              {/* Страна */}
+              <div>
+                <label className="text-xs text-gray-400 mb-2 block uppercase tracking-wide">Страна</label>
+                <div className="relative">
+                  <Icon name="Globe" size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+                  <input
+                    type="text"
+                    placeholder="Например, Турция"
+                    value={country}
+                    onChange={(e) => setCountry(e.target.value)}
+                    className="w-full glass rounded-lg pl-8 pr-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-[#7c3aed]/60 transition-all"
+                  />
+                </div>
+              </div>
+
+              {/* Отель */}
+              <div>
+                <label className="text-xs text-gray-400 mb-2 block uppercase tracking-wide">Отель</label>
+                <div className="relative">
+                  <Icon name="Building2" size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+                  <input
+                    type="text"
+                    placeholder="Название отеля"
+                    value={hotel}
+                    onChange={(e) => setHotel(e.target.value)}
+                    className="w-full glass rounded-lg pl-8 pr-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-[#7c3aed]/60 transition-all"
+                  />
+                </div>
+              </div>
+
+              {/* Сброс */}
+              <div className="flex items-end">
+                <button
+                  onClick={() => { setFilters({ type: "все", duration: "все", price: "все", difficulty: "все" }); setPriceFrom(""); setPriceTo(""); setCityFrom(""); setCountry(""); setHotel(""); }}
+                  className="glass text-xs text-gray-400 hover:text-white px-4 py-2 rounded-lg transition-all flex items-center gap-2"
+                >
+                  <Icon name="RotateCcw" size={13} />
+                  Сбросить фильтры
+                </button>
+              </div>
             </div>
           </div>
 
