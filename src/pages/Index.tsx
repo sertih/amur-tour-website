@@ -184,7 +184,7 @@ export default function Index() {
           ))}
         </div>
 
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto rounded-[0.25rem]">
           <div className={`transition-all duration-1000 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
             <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-6 text-sm text-[#06b6d4] font-medium">
               <Icon name="Globe" size={14} />
@@ -193,10 +193,10 @@ export default function Index() {
           </div>
 
           <h1 className={`font-oswald text-5xl md:text-7xl font-bold leading-[1.15] mb-4 transition-all duration-1000 delay-200 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            <span className="text-white block">ОТДЫХАЙТЕ</span>
-            <span className="text-gradient block">СПОКОЙНО —</span>
-            <span className="text-white block">МЫ ПОЗАБОТИМСЯ</span>
-            <span className="text-gradient block">ОБО ВСЁМ</span>
+            <span className="text-white block text-7xl">ОТДЫХАЙТЕ</span>
+            <span className="text-gradient block text-7xl">СПОКОЙНО —</span>
+            <span className="text-white block text-7xl">МЫ ПОЗАБОТИМСЯ</span>
+            <span className="text-gradient block text-7xl">ОБО ВСЁМ</span>
           </h1>
 
           <p className={`text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed transition-all duration-1000 delay-300 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
