@@ -1,5 +1,5 @@
 import Icon from "@/components/ui/icon";
-import { ROUTES, GALLERY_ITEMS, REVIEWS, PEOPLE_IMG, FilterState } from "@/components/data";
+import { ROUTES, REVIEWS, PEOPLE_IMG, FilterState } from "@/components/data";
 
 interface ToursSectionProps {
   filters: FilterState;
@@ -251,30 +251,6 @@ export default function ToursSection({
         </div>
       </section>
 
-      {/* GALLERY */}
-      <section id="gallery" className="py-24 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 reveal opacity-0-init animate-fade-up">
-            <span className="text-[#06b6d4] font-medium uppercase tracking-widest text-sm">Наши направления</span>
-            <h2 className="font-oswald text-4xl md:text-5xl font-bold mt-2 mb-4">ГАЛЕРЕЯ</h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-[#7c3aed] to-[#06b6d4] mx-auto rounded-full" />
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {GALLERY_ITEMS.map((item, i) => (
-              <div
-                key={i}
-                className="relative overflow-hidden rounded-2xl group reveal opacity-0-init animate-scale-in"
-                style={{ animationDelay: `${i * 0.1}s` }}
-              >
-                <div className="w-full h-48 md:h-56 glass flex flex-col items-center justify-center gap-3 border-2 border-dashed border-white/10 hover:border-[#7c3aed]/40 transition-colors cursor-pointer">
-                  <Icon name="ImagePlus" size={28} className="text-gray-600" />
-                  <span className="text-gray-500 text-xs">{item.label}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* REVIEWS */}
       <section id="reviews" className="py-24 px-4 bg-[#0e0b1f]/60">
