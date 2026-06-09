@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
-import { ROUTES } from "@/components/data";
 
 const QUESTIONS = [
   {
@@ -50,16 +49,6 @@ const QUESTIONS = [
     ],
   },
   {
-    id: "climate",
-    question: "Какой климат предпочитаете?",
-    icon: "Sun",
-    options: [
-      { label: "Жарко и солнечно", value: "hot", icon: "Sun" },
-      { label: "Тепло и комфортно", value: "warm", icon: "CloudSun" },
-      { label: "Прохладно и свежо", value: "cool", icon: "Wind" },
-    ],
-  },
-  {
     id: "hotel",
     question: "Какой отель предпочитаете?",
     icon: "Building",
@@ -69,37 +58,9 @@ const QUESTIONS = [
       { label: "Люкс 5★", value: "luxury", icon: "Crown" },
     ],
   },
-  {
-    id: "activity",
-    question: "Как хотите проводить время?",
-    icon: "Zap",
-    options: [
-      { label: "Только отдыхать у моря", value: "relax", icon: "Umbrella" },
-      { label: "Активный туризм", value: "active", icon: "Mountain" },
-      { label: "Экскурсии и культура", value: "culture", icon: "Map" },
-      { label: "Всего понемногу", value: "mix", icon: "Shuffle" },
-    ],
-  },
 ];
 
 type Answers = Record<string, string>;
-
-function getRecommendations(answers: Answers) {
-  return ROUTES.filter((r) => {
-    const duration = answers["duration"];
-    const budget = answers["budget"];
-
-    if (duration === "short" && r.duration > 7) return false;
-    if (duration === "medium" && (r.duration < 8 || r.duration > 12)) return false;
-    if (duration === "long" && r.duration < 13) return false;
-
-    if (budget === "low" && r.price > 60000) return false;
-    if (budget === "mid" && (r.price < 60000 || r.price > 100000)) return false;
-    if (budget === "high" && r.price < 100000) return false;
-
-    return true;
-  });
-}
 
 interface QuizSectionProps {
   onBookRoute: (title: string) => void;
@@ -111,10 +72,13 @@ export default function QuizSection({ onBookRoute }: QuizSectionProps) {
   const [done, setDone] = useState(false);
   const [customValue, setCustomValue] = useState("");
   const [showCustomInput, setShowCustomInput] = useState(false);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   const current = QUESTIONS[step];
   const total = QUESTIONS.length;
-  const progress = ((step) / total) * 100;
+  const progress = (step / total) * 100;
 
   const choose = (value: string) => {
     const newAnswers = { ...answers, [current.id]: value };
@@ -138,9 +102,17 @@ export default function QuizSection({ onBookRoute }: QuizSectionProps) {
     setDone(false);
     setCustomValue("");
     setShowCustomInput(false);
+    setName("");
+    setPhone("");
+    setSubmitted(false);
   };
 
-  const results = done ? getRecommendations(answers) : [];
+  const handleSubmit = () => {
+    if (name.trim() && phone.trim()) {
+      setSubmitted(true);
+      onBookRoute(answers["country"] || "");
+    }
+  };
 
   return (
     <section id="quiz" className="py-24 px-4 bg-[#0e0b1f]/60">
@@ -202,6 +174,7 @@ export default function QuizSection({ onBookRoute }: QuizSectionProps) {
                   </button>
                 )}
               </div>
+
               {"allowCustom" in current && current.allowCustom && showCustomInput && (
                 <div className="mt-4 flex gap-2">
                   <input
@@ -233,59 +206,69 @@ export default function QuizSection({ onBookRoute }: QuizSectionProps) {
                 </button>
               )}
             </>
+          ) : submitted ? (
+            <div className="text-center py-6">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#7c3aed] to-[#06b6d4] flex items-center justify-center mx-auto mb-5">
+                <Icon name="CheckCheck" size={30} className="text-white" />
+              </div>
+              <h3 className="font-oswald text-2xl font-bold mb-2">Заявка принята!</h3>
+              <p className="text-gray-400 text-sm mb-6">Менеджер свяжется с вами в ближайшее время и подберёт идеальный тур</p>
+              <button onClick={restart} className="glass rounded-xl px-6 py-3 text-sm text-gray-400 hover:text-white flex items-center justify-center gap-2 transition-all mx-auto">
+                <Icon name="RotateCcw" size={14} />
+                Пройти заново
+              </button>
+            </div>
           ) : (
             <>
-              {/* Results */}
+              {/* Result header */}
               <div className="text-center mb-8">
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#7c3aed] to-[#06b6d4] flex items-center justify-center mx-auto mb-4">
                   <Icon name="Sparkles" size={26} className="text-white" />
                 </div>
-                <h3 className="font-oswald text-2xl font-bold mb-1">
-                  {results.length > 0 ? "Мы подобрали туры для вас!" : "Индивидуальный подбор"}
-                </h3>
-                <p className="text-gray-400 text-sm">
-                  {results.length > 0
-                    ? `По вашим ответам подходит ${results.length} ${results.length === 1 ? "тур" : "тура"}`
-                    : "По вашим параметрам подберём тур индивидуально — оставьте заявку"}
-                </p>
+                <h3 className="font-oswald text-2xl font-bold mb-1">Ваши результаты готовы!</h3>
+                <p className="text-gray-400 text-sm">Оставьте контакты — менеджер подберёт тур по вашим ответам и свяжется с вами</p>
               </div>
 
-              {results.length > 0 ? (
-                <div className="space-y-4 mb-6">
-                  {results.map((r) => (
-                    <div key={r.id} className="glass rounded-2xl p-4 flex items-center justify-between gap-4">
-                      <div className="flex items-center gap-4 flex-1 min-w-0">
-                        <img src={r.img} alt={r.title} className="w-16 h-16 rounded-xl object-cover flex-shrink-0" />
-                        <div className="min-w-0">
-                          <div className="font-oswald font-bold text-lg leading-tight truncate">{r.title}</div>
-                          <div className="text-gray-400 text-xs mt-0.5">{r.duration} дн. · {r.price.toLocaleString("ru-RU")} ₽/чел.</div>
-                        </div>
-                      </div>
-                      <button
-                        onClick={() => onBookRoute(r.title)}
-                        className="btn-primary px-4 py-2 rounded-xl text-sm font-oswald uppercase flex-shrink-0"
-                      >
-                        Забронировать
-                      </button>
-                    </div>
-                  ))}
+              {/* Lead form */}
+              <div className="space-y-4 mb-6">
+                <div>
+                  <label className="text-xs text-gray-400 mb-2 block uppercase tracking-wide">Ваше имя</label>
+                  <div className="relative">
+                    <Icon name="User" size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+                    <input
+                      type="text"
+                      placeholder="Иван Иванов"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      className="w-full glass rounded-xl pl-10 pr-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#7c3aed]/50 transition-all"
+                    />
+                  </div>
                 </div>
-              ) : (
-                <div className="glass rounded-2xl p-6 text-center mb-6">
-                  <p className="text-gray-300 text-sm mb-4">Наши менеджеры работают круглосуточно и подберут тур именно под ваши пожелания</p>
-                  <button
-                    onClick={() => onBookRoute("")}
-                    className="btn-primary px-6 py-3 rounded-xl font-oswald uppercase"
-                  >
-                    Оставить заявку
-                  </button>
+                <div>
+                  <label className="text-xs text-gray-400 mb-2 block uppercase tracking-wide">Телефон</label>
+                  <div className="relative">
+                    <Icon name="Phone" size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+                    <input
+                      type="tel"
+                      placeholder="+7 (999) 123-45-67"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+                      className="w-full glass rounded-xl pl-10 pr-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#7c3aed]/50 transition-all"
+                    />
+                  </div>
                 </div>
-              )}
+              </div>
 
               <button
-                onClick={restart}
-                className="w-full glass rounded-xl py-3 text-sm text-gray-400 hover:text-white flex items-center justify-center gap-2 transition-all"
+                onClick={handleSubmit}
+                disabled={!name.trim() || !phone.trim()}
+                className="btn-primary w-full py-4 rounded-xl font-oswald text-lg uppercase tracking-wide disabled:opacity-40 disabled:cursor-not-allowed"
               >
+                Получить подборку туров
+              </button>
+
+              <button onClick={restart} className="mt-4 w-full glass rounded-xl py-3 text-sm text-gray-400 hover:text-white flex items-center justify-center gap-2 transition-all">
                 <Icon name="RotateCcw" size={14} />
                 Пройти заново
               </button>
