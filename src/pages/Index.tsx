@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 import NavBar from "@/components/NavBar";
 import ToursSection from "@/components/ToursSection";
+import QuizSection from "@/components/QuizSection";
 import BookingContactsSection from "@/components/BookingContactsSection";
 import { HERO_IMG, FilterState, BookingForm, ContactForm } from "@/components/data";
 
@@ -145,6 +146,8 @@ export default function Index() {
         setHotel={setHotel}
         onBookRoute={handleBookRoute}
       />
+
+      <QuizSection onBookRoute={handleBookRoute} />
 
       <BookingContactsSection
         bookingForm={bookingForm}

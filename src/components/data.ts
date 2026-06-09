@@ -6,6 +6,7 @@ export const NAV_ITEMS = [
   { id: "home", label: "Главная" },
   { id: "routes", label: "Туры" },
   { id: "about", label: "О компании" },
+  { id: "quiz", label: "Подбор тура" },
   { id: "reviews", label: "Отзывы" },
   { id: "booking", label: "Бронирование" },
   { id: "contacts", label: "Контакты" },
