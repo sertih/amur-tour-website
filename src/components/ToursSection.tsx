@@ -281,7 +281,7 @@ export default function ToursSection({
                   </div>
                   <span className="text-gray-500 text-xs">{r.date}</span>
                 </div>
-                <p className="text-gray-300 leading-relaxed text-sm text-left">"{r.text}"</p>
+                <p className="text-gray-300 leading-relaxed text-sm text-left">{r.text}</p>
               </div>
             ))}
           </div>
