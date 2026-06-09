@@ -281,7 +281,7 @@ export default function ToursSection({
                   </div>
                   <span className="text-gray-500 text-xs">{r.date}</span>
                 </div>
-                <p className="text-gray-300 leading-relaxed text-sm text-left">Отличная компания! Всё организовали на высшем Компания ответственная, остались очень довольны, рекомендую к сотрудничеству. Анастасия просто умничка, что порекомендовала нам отель на пляже Най Янг Пхукет, несказанно благодарны за помощь в организации поездки, очень внимательна ко всем пожеланиям клиента. Однозначно обращайтесь, не пожалеете</p>
+                <p className="text-gray-300 leading-relaxed text-sm text-left">"{r.text}"</p>
               </div>
             ))}
           </div>
