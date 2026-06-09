@@ -4,15 +4,19 @@ import { ROUTES } from "@/components/data";
 
 const QUESTIONS = [
   {
-    id: "goal",
-    question: "Какая цель поездки?",
-    icon: "Compass",
+    id: "country",
+    question: "Какую страну хотели бы посетить?",
+    icon: "Globe",
     options: [
-      { label: "Пляж и море", value: "пляжный", icon: "Waves" },
-      { label: "Экзотика и природа", value: "экзотика", icon: "TreePalm" },
-      { label: "Экскурсии и история", value: "экскурсионный", icon: "Landmark" },
-      { label: "Романтика", value: "романтика", icon: "Heart" },
+      { label: "Турция", value: "Турция", icon: "Sun" },
+      { label: "Египет", value: "Египет", icon: "Pyramid" },
+      { label: "Таиланд", value: "Таиланд", icon: "TreePalm" },
+      { label: "Вьетнам", value: "Вьетнам", icon: "Waves" },
+      { label: "Китай", value: "Китай", icon: "Landmark" },
+      { label: "Бали", value: "Бали", icon: "Flower2" },
+      { label: "Мальдивы", value: "Мальдивы", icon: "Anchor" },
     ],
+    allowCustom: true,
   },
   {
     id: "duration",
@@ -82,11 +86,8 @@ type Answers = Record<string, string>;
 
 function getRecommendations(answers: Answers) {
   return ROUTES.filter((r) => {
-    const goal = answers["goal"];
     const duration = answers["duration"];
     const budget = answers["budget"];
-
-    if (goal && r.type !== goal) return false;
 
     if (duration === "short" && r.duration > 7) return false;
     if (duration === "medium" && (r.duration < 8 || r.duration > 12)) return false;
@@ -108,6 +109,8 @@ export default function QuizSection({ onBookRoute }: QuizSectionProps) {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
   const [done, setDone] = useState(false);
+  const [customValue, setCustomValue] = useState("");
+  const [showCustomInput, setShowCustomInput] = useState(false);
 
   const current = QUESTIONS[step];
   const total = QUESTIONS.length;
@@ -116,6 +119,8 @@ export default function QuizSection({ onBookRoute }: QuizSectionProps) {
   const choose = (value: string) => {
     const newAnswers = { ...answers, [current.id]: value };
     setAnswers(newAnswers);
+    setShowCustomInput(false);
+    setCustomValue("");
     if (step + 1 < total) {
       setTimeout(() => setStep(step + 1), 220);
     } else {
@@ -123,10 +128,16 @@ export default function QuizSection({ onBookRoute }: QuizSectionProps) {
     }
   };
 
+  const submitCustom = () => {
+    if (customValue.trim()) choose(customValue.trim());
+  };
+
   const restart = () => {
     setStep(0);
     setAnswers({});
     setDone(false);
+    setCustomValue("");
+    setShowCustomInput(false);
   };
 
   const results = done ? getRecommendations(answers) : [];
@@ -179,7 +190,38 @@ export default function QuizSection({ onBookRoute }: QuizSectionProps) {
                     <span className="font-medium text-white">{opt.label}</span>
                   </button>
                 ))}
+                {"allowCustom" in current && current.allowCustom && (
+                  <button
+                    onClick={() => setShowCustomInput((v) => !v)}
+                    className={`glass rounded-2xl p-4 flex items-center gap-3 text-left hover:bg-white/10 transition-all border border-dashed border-white/20 hover:border-[#7c3aed]/40 group ${showCustomInput ? "border-[#7c3aed]/40 bg-[#7c3aed]/5" : ""}`}
+                  >
+                    <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#7c3aed]/20 to-[#06b6d4]/20 flex items-center justify-center flex-shrink-0">
+                      <Icon name="PenLine" size={16} className="text-[#06b6d4]" />
+                    </div>
+                    <span className="font-medium text-gray-300">Свой вариант</span>
+                  </button>
+                )}
               </div>
+              {"allowCustom" in current && current.allowCustom && showCustomInput && (
+                <div className="mt-4 flex gap-2">
+                  <input
+                    autoFocus
+                    type="text"
+                    placeholder="Введите страну..."
+                    value={customValue}
+                    onChange={(e) => setCustomValue(e.target.value)}
+                    onKeyDown={(e) => e.key === "Enter" && submitCustom()}
+                    className="flex-1 glass rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#7c3aed]/50 transition-all"
+                  />
+                  <button
+                    onClick={submitCustom}
+                    disabled={!customValue.trim()}
+                    className="btn-primary px-5 py-3 rounded-xl font-oswald uppercase disabled:opacity-40"
+                  >
+                    Далее
+                  </button>
+                </div>
+              )}
 
               {step > 0 && (
                 <button
