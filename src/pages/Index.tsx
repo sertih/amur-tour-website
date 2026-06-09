@@ -121,7 +121,7 @@ export default function Index() {
           </p>
 
           <div className={`flex flex-col sm:flex-row gap-4 justify-start transition-all duration-1000 delay-500 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            <button onClick={() => scrollTo("routes")} className="btn-primary px-8 py-4 rounded-xl font-oswald text-lg uppercase tracking-wide">
+            <button onClick={() => scrollTo("quiz")} className="btn-primary px-8 py-4 rounded-xl font-oswald text-lg uppercase tracking-wide">
               Подобрать тур
             </button>
             <button onClick={() => scrollTo("booking")} className="glass px-8 py-4 rounded-xl font-oswald text-lg uppercase tracking-wide hover:bg-white/10 transition-all">
