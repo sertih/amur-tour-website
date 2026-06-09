@@ -59,7 +59,7 @@ export default function ToursSection({
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 reveal opacity-0-init animate-fade-up">
             <span className="text-[#06b6d4] font-medium uppercase tracking-widest text-sm">Куда отправиться</span>
-            <h2 className="font-oswald text-4xl md:text-5xl font-bold mt-2 mb-4">ПОПУЛЯРНЫЕ ТУРЫ</h2>
+            <h2 className="font-oswald text-4xl md:text-5xl font-bold mt-2 mb-4">ГОРЯЩИЕ ТУРЫ</h2>
             <div className="w-16 h-1 bg-gradient-to-r from-[#7c3aed] to-[#06b6d4] mx-auto rounded-full" />
           </div>
 
