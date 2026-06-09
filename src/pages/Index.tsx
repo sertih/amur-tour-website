@@ -131,6 +131,8 @@ export default function Index() {
         </div>
       </section>
 
+      <QuizSection onBookRoute={handleBookRoute} />
+
       <ToursSection
         filters={filters}
         setFilters={setFilters}
@@ -146,8 +148,6 @@ export default function Index() {
         setHotel={setHotel}
         onBookRoute={handleBookRoute}
       />
-
-      <QuizSection onBookRoute={handleBookRoute} />
 
       <BookingContactsSection
         bookingForm={bookingForm}
