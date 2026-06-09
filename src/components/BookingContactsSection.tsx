@@ -111,10 +111,9 @@ export default function BookingContactsSection({
             <div className="reveal opacity-0-init animate-slide-right">
               <div className="space-y-6 mb-8">
                 {[
-                  { icon: "MapPin", label: "Адрес", value: "г. Москва, ул. Тверская, 15, офис 304" },
-                  { icon: "Phone", label: "Телефон", value: "+7 (495) 123-45-67" },
-                  { icon: "Mail", label: "Email", value: "info@avianexttour.ru" },
-                  { icon: "Clock", label: "Режим работы", value: "Пн–Пт: 9:00–19:00, Сб: 10:00–16:00" },
+                  { icon: "MapPin", label: "Адрес", value: "г. Хабаровск, ул. Радищева, 6/2" },
+                  { icon: "Phone", label: "Телефон", value: "+7 (909) 824-16-07" },
+                  { icon: "Clock", label: "Режим работы", value: "Круглосуточно" },
                 ].map((c) => (
                   <div key={c.label} className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#7c3aed]/20 to-[#06b6d4]/20 flex items-center justify-center flex-shrink-0">
@@ -127,17 +126,15 @@ export default function BookingContactsSection({
                   </div>
                 ))}
               </div>
-              <div className="flex gap-4">
-                {[
-                  { icon: "MessageCircle", label: "Telegram" },
-                  { icon: "Phone", label: "WhatsApp" },
-                  { icon: "Globe", label: "VK" },
-                ].map((s) => (
-                  <button key={s.label} className="glass rounded-xl px-4 py-3 flex items-center gap-2 hover:bg-white/10 transition-all text-sm font-medium">
-                    <Icon name={s.icon} size={16} className="text-[#7c3aed]" />
-                    {s.label}
-                  </button>
-                ))}
+              <div className="flex flex-wrap gap-4">
+                <button className="glass rounded-xl px-4 py-3 flex items-center gap-2 hover:bg-white/10 transition-all text-sm font-medium">
+                  <Icon name="MessageCircle" size={16} className="text-[#7c3aed]" />
+                  Telegram
+                </button>
+                <div className="glass rounded-xl px-4 py-3 flex items-center gap-2 text-sm font-medium">
+                  <span className="w-5 h-5 rounded bg-gradient-to-br from-[#7c3aed] to-[#06b6d4] flex items-center justify-center text-white text-[10px] font-black leading-none">M</span>
+                  MAX
+                </div>
               </div>
             </div>
 
