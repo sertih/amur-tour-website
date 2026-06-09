@@ -281,7 +281,7 @@ export default function ToursSection({
                   </div>
                   <span className="text-gray-500 text-xs">{r.date}</span>
                 </div>
-                <p className="text-gray-300 leading-relaxed text-sm">"{r.text}"</p>
+                <p className="text-gray-300 leading-relaxed text-sm text-left">Отличная компания! Всё организовали на высшем уровне: билеты, отель, трансферы — без единой проблемы. Отдельное спасибо менеджеру Лилии за внимательность и готовность помочь в любое время. Отдых получился идеальным, с уверенностью рекомендуем и сами обратимся ещё!</p>
               </div>
             ))}
           </div>
