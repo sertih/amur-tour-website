@@ -57,13 +57,13 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				ant: {
-					dark: '#080614',
-					navy: '#0e0b1f',
-					purple: '#7c3aed',
-					violet: '#8b5cf6',
-					cyan: '#06b6d4',
-					sky: '#38bdf8',
-					light: '#e8f0fd',
+					dark: '#4a0060',
+					navy: '#3a0050',
+					purple: '#e8007a',
+					violet: '#ff2090',
+					cyan: '#ff8c00',
+					sky: '#ffd000',
+					light: '#b8ecf5',
 				}
 			},
 			borderRadius: {

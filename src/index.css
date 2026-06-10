@@ -4,34 +4,34 @@
 
 @layer base {
   :root {
-    --background: 240 25% 5%;
-    --foreground: 220 40% 95%;
-    --card: 245 22% 9%;
-    --card-foreground: 220 40% 95%;
-    --popover: 245 22% 9%;
-    --popover-foreground: 220 40% 95%;
-    --primary: 262 80% 60%;
+    --background: 197 71% 83%;
+    --foreground: 270 60% 18%;
+    --card: 195 60% 88%;
+    --card-foreground: 270 60% 18%;
+    --popover: 195 60% 88%;
+    --popover-foreground: 270 60% 18%;
+    --primary: 315 80% 52%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 240 18% 15%;
-    --secondary-foreground: 220 40% 90%;
-    --muted: 240 18% 12%;
-    --muted-foreground: 230 18% 55%;
-    --accent: 199 89% 48%;
+    --secondary: 195 50% 78%;
+    --secondary-foreground: 270 60% 18%;
+    --muted: 195 45% 80%;
+    --muted-foreground: 270 40% 35%;
+    --accent: 30 100% 55%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 240 18% 17%;
-    --input: 240 18% 15%;
-    --ring: 262 80% 60%;
+    --border: 195 40% 70%;
+    --input: 195 50% 78%;
+    --ring: 315 80% 52%;
     --radius: 0.75rem;
-    --sidebar-background: 240 25% 7%;
-    --sidebar-foreground: 220 40% 90%;
-    --sidebar-primary: 262 80% 60%;
+    --sidebar-background: 195 60% 85%;
+    --sidebar-foreground: 270 60% 18%;
+    --sidebar-primary: 315 80% 52%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 18% 12%;
-    --sidebar-accent-foreground: 220 40% 90%;
-    --sidebar-border: 240 18% 17%;
-    --sidebar-ring: 262 80% 60%;
+    --sidebar-accent: 195 50% 78%;
+    --sidebar-accent-foreground: 270 60% 18%;
+    --sidebar-border: 195 40% 70%;
+    --sidebar-ring: 315 80% 52%;
   }
 }
 
@@ -47,29 +47,29 @@
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+    background: linear-gradient(135deg, #e8007a 0%, #ff8c00 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-gradient-cyan {
-    background: linear-gradient(135deg, #06b6d4 0%, #38bdf8 100%);
+    background: linear-gradient(135deg, #ff8c00 0%, #ffd000 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .glass {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.4);
   }
 
   .glass-dark {
-    background: rgba(8, 6, 20, 0.85);
+    background: rgba(120, 40, 130, 0.25);
     backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.3);
   }
 
   .card-hover {
@@ -77,18 +77,18 @@
   }
   .card-hover:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 60px rgba(124, 58, 237, 0.25);
+    box-shadow: 0 20px 60px rgba(232, 0, 122, 0.25);
   }
 
   .btn-primary {
-    background: linear-gradient(135deg, #7c3aed, #06b6d4);
+    background: linear-gradient(135deg, #e8007a, #ff8c00);
     color: white;
     font-weight: 600;
     transition: all 0.3s ease;
   }
   .btn-primary:hover {
-    background: linear-gradient(135deg, #8b5cf6, #22d3ee);
-    box-shadow: 0 8px 30px rgba(124, 58, 237, 0.4);
+    background: linear-gradient(135deg, #ff2090, #ffaa00);
+    box-shadow: 0 8px 30px rgba(232, 0, 122, 0.4);
     transform: translateY(-2px);
   }
 
@@ -103,7 +103,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(135deg, #7c3aed, #06b6d4);
+    background: linear-gradient(135deg, #e8007a, #ff8c00);
     transition: width 0.3s ease;
   }
   .nav-link:hover::after,
@@ -140,18 +140,18 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #080614;
+  background: #8dd8e8;
 }
 ::-webkit-scrollbar-thumb {
-  background: #7c3aed;
+  background: #e8007a;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #06b6d4;
+  background: #ff8c00;
 }
 
 /* Selection */
 ::selection {
-  background: rgba(124, 58, 237, 0.3);
-  color: white;
+  background: rgba(232, 0, 122, 0.25);
+  color: #3a0050;
 }
