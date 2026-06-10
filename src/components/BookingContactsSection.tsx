@@ -134,16 +134,7 @@ export default function BookingContactsSection({
                   Telegram
                 </button>
                 <div className="glass rounded-xl px-4 py-3 flex items-center gap-2 text-sm font-medium">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <linearGradient id="maxGrad" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stopColor="#06b6d4"/>
-                        <stop offset="100%" stopColor="#7c3aed"/>
-                      </linearGradient>
-                    </defs>
-                    <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.956 9.956 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" fill="url(#maxGrad)"/>
-                    <text x="12" y="16" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold" fontFamily="Arial, sans-serif">MAX</text>
-                  </svg>
+                  <img src="https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/bucket/72c1c9f4-d4d8-4bf6-b147-1aca81763071.jpeg" width="18" height="18" style={{borderRadius: 4}} />
                   MAX
                 </div>
               </div>
