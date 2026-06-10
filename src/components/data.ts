@@ -14,7 +14,7 @@ export const NAV_ITEMS = [
 
 export const ROUTES = [
   { id: 1, title: "Китай — Хайнань", type: "пляжный", duration: 7, price: 65897, difficulty: "лёгкий", img: "https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/bucket/9867595d-0b65-419f-9c55-08ea10189184.jpg", description: "Отдых на берегу Южно-Китайского моря по цене обычного отпуска", tag: "Хит сезона" },
-  { id: 2, title: "Турция — Анталья All Inclusive", type: "пляжный", duration: 10, price: 52000, difficulty: "лёгкий", img: RESORT_IMG, description: "Отдых для всей семьи в лучших отелях Антальи с системой «всё включено»", tag: "" },
+  { id: 2, title: "Индонезия — Бали", type: "пляжный", duration: 10, price: 52000, difficulty: "лёгкий", img: RESORT_IMG, description: "Подарите себе путешествие мечты на Бали — остров, где каждый день наполнен новыми эмоциями, потрясающими видами и ощущением абсолютной гармонии с природой и собой", tag: "" },
   { id: 3, title: "Таиланд — Пхукет & Самуи", type: "экзотика", duration: 14, price: 115000, difficulty: "средний", img: HERO_IMG, description: "Экзотика Юго-Восточной Азии: тропические острова, храмы и уличная кухня", tag: "Новинка" },
   { id: 4, title: "Мальдивы — Медовый месяц", type: "романтика", duration: 7, price: 195000, difficulty: "лёгкий", img: RESORT_IMG, description: "Бунгало над водой, кораллы, приватный пляж — идеально для двоих", tag: "Эксклюзив" },
   { id: 5, title: "Европа — Grand Tour", type: "экскурсионный", duration: 12, price: 78000, difficulty: "средний", img: PEOPLE_IMG, description: "10 стран, 20 городов: Париж, Рим, Барселона, Вена — настоящий европейский маршрут", tag: "" },
