@@ -118,8 +118,8 @@ export default function QuizSection({ onBookRoute }: QuizSectionProps) {
     <section id="quiz" className="py-24 px-4 bg-[#0e0b1f]/60">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12 reveal opacity-0-init animate-fade-up">
-          <span className="text-[#06b6d4] font-medium uppercase tracking-widest text-sm">Подберём лучший вариант</span>
-          <h2 className="font-oswald text-4xl md:text-5xl font-bold mt-2 mb-4">КВИЗ — ПОДБОР ТУРА</h2>
+          <h2 className="font-oswald text-4xl md:text-5xl font-bold mt-2 mb-4">ПОДБЕРЁМ ЛУЧШИЙ ВАРИАНТ ТУРА</h2>
+          <p className="text-gray-400 text-lg mb-4">Ответьте на несколько вопросов и получите персональное предложение на самых выгодных условиях</p>
           <div className="w-16 h-1 bg-gradient-to-r from-[#7c3aed] to-[#06b6d4] mx-auto rounded-full" />
         </div>
 
