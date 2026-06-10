@@ -164,10 +164,10 @@ export default function ToursSection({
               {filteredRoutes.map((route, i) => (
                 <div
                   key={route.id}
-                  className="rounded-2xl overflow-hidden card-hover cursor-pointer reveal opacity-0-init animate-fade-up"
+                  className="rounded-2xl overflow-hidden card-hover cursor-pointer reveal opacity-0-init animate-fade-up flex flex-col"
                   style={{ animationDelay: `${i * 0.1}s`, background: "rgba(255,255,255,0.65)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.8)" }}
                 >
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-48 overflow-hidden flex-shrink-0">
                     <img src={route.img} alt={route.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
                     <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(58,0,80,0.6), transparent)" }} />
                     {route.tag && (
@@ -175,17 +175,13 @@ export default function ToursSection({
                         {route.tag}
                       </div>
                     )}
-
                   </div>
-                  <div className="p-5">
+                  <div className="p-5 flex flex-col flex-1">
                     <h3 className="font-oswald text-xl font-bold mb-2" style={{ color: "#3a0050" }}>{route.title}</h3>
-                    <p className="text-sm leading-relaxed mb-4" style={{ color: "#7a4080" }}>{route.description}</p>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-1 text-sm" style={{ color: "#7a4080" }}>
-                        <Icon name="Clock" size={14} />
-                        <span>{route.duration} {route.duration < 5 ? "дня" : "дней"}</span>
-                      </div>
-
+                    <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "#7a4080" }}>{route.description}</p>
+                    <div className="flex items-center gap-1 text-sm mb-4" style={{ color: "#7a4080" }}>
+                      <Icon name="Clock" size={14} />
+                      <span>{route.duration} {route.duration < 5 ? "дня" : "дней"}</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div>
