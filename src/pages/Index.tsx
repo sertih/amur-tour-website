@@ -118,11 +118,9 @@ export default function Index() {
           >
             <span className="block text-3xl md:text-5xl tracking-widest uppercase mb-1" style={{ color: "#3a0050" }}>Отдыхайте спокойно —</span>
             <span className="block text-4xl md:text-6xl uppercase" style={{
-              background: "linear-gradient(135deg, #e8007a 0%, #ff8c00 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
+              color: "#c0005a",
               lineHeight: 1.2,
+              textShadow: "0 2px 8px rgba(255,255,255,0.6)",
             }}>мы позаботимся</span>
             <span className="block text-5xl md:text-7xl uppercase tracking-tight" style={{ lineHeight: 1.1, color: "#3a0050" }}>обо всём</span>
           </h1>
