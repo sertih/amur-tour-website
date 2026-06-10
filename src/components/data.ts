@@ -1,5 +1,5 @@
 export const HERO_IMG = "https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/files/caf940d1-8aef-49fc-8d6d-0d394d1c26f4.jpg";
-export const PEOPLE_IMG = "https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/bucket/865fdf51-f0fa-4104-99c5-5a810c534088.jpg";
+export const PEOPLE_IMG = "https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/bucket/da4d4aab-1692-4c6d-b44e-7ae568acc509.jpg";
 export const RESORT_IMG = "https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/files/66625b0b-7835-4bcd-942b-1f9f016ccb4b.jpg";
 
 export const NAV_ITEMS = [
