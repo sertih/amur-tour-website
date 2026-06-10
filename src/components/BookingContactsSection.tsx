@@ -134,7 +134,7 @@ export default function BookingContactsSection({
                   Telegram
                 </button>
                 <div className="glass rounded-xl px-4 py-3 flex items-center gap-2 text-sm font-medium">
-                  <img src="https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/bucket/72c1c9f4-d4d8-4bf6-b147-1aca81763071.jpeg" width="18" height="18" style={{borderRadius: 4}} />
+                  <img src="https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/bucket/72c1c9f4-d4d8-4bf6-b147-1aca81763071.jpeg" width="20" height="20" style={{borderRadius: "6px", objectFit: "cover"}} />
                   MAX
                 </div>
               </div>
