@@ -243,7 +243,7 @@ export default function ToursSection({
             </div>
             <div className="reveal opacity-0-init animate-fade-up relative">
               <div className="relative rounded-2xl overflow-hidden">
-                <img src={PEOPLE_IMG} alt="О компании" className="w-full h-96 object-cover object-top" />
+                <img src={PEOPLE_IMG} alt="О компании" className="w-full h-96 object-cover" style={{ objectPosition: "center 10%" }} />
                 <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(58,0,80,0.4), transparent)" }} />
               </div>
             </div>
