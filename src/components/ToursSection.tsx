@@ -186,7 +186,7 @@ export default function ToursSection({
                     <div className="flex items-center justify-between">
                       <div>
                         <span className="font-oswald text-2xl font-bold" style={{ background: "linear-gradient(135deg, #e8007a, #ff8c00)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                          {route.price.toLocaleString("ru-RU")} ₽
+                          от {route.price.toLocaleString("ru-RU")} ₽
                         </span>
                         <span className="text-xs ml-1" style={{ color: "#a060b0" }}>/ чел.</span>
                       </div>
