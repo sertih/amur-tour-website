@@ -185,9 +185,7 @@ export default function ToursSection({
                         <Icon name="Clock" size={14} />
                         <span>{route.duration} {route.duration < 5 ? "дня" : "дней"}</span>
                       </div>
-                      <span className={`text-xs font-medium px-2 py-1 rounded-lg ${difficultyColor(route.difficulty)}`}>
-                        {route.difficulty === "лёгкий" ? "стандарт" : "комфорт"}
-                      </span>
+
                     </div>
                     <div className="flex items-center justify-between">
                       <div>
