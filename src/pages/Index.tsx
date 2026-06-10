@@ -55,7 +55,7 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-[#080614] font-montserrat text-white overflow-x-hidden">
+    <div className="min-h-screen bg-[#8dd8e8] font-montserrat text-[#3a0050] overflow-x-hidden">
 
       <NavBar
         activeSection={activeSection}
@@ -65,24 +65,36 @@ export default function Index() {
       />
 
       {/* HERO */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={HERO_IMG} alt="Авиа Некст Тур" className="w-full h-full object-cover" style={{ filter: "brightness(0.3)" }} />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#080614]/70 via-transparent to-[#080614]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#080614]/60 via-transparent to-[#080614]/40" />
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#7c3aed]/10 blur-3xl" />
-          <div className="absolute top-1/2 right-1/4 w-[400px] h-[400px] rounded-full bg-[#06b6d4]/8 blur-3xl" />
+      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: "#8dd8e8" }}>
+        {/* Волны как на картинке — оранжево-жёлто-пурпурные */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Оранжево-жёлтая волна сверху */}
+          <div className="absolute -top-20 -left-10 w-[130%] h-[55%]" style={{
+            background: "linear-gradient(160deg, #ff6a00 0%, #ffb300 40%, #ffdd00 65%, #e8007a 100%)",
+            borderRadius: "0 0 60% 40%",
+            opacity: 0.92,
+          }} />
+          {/* Пурпурно-розовая волна поверх */}
+          <div className="absolute -top-10 -left-10 w-[85%] h-[45%]" style={{
+            background: "linear-gradient(140deg, #c0007a 0%, #e8007a 50%, #ff4fb0 100%)",
+            borderRadius: "0 0 80% 20%",
+            opacity: 0.85,
+          }} />
+          {/* Мягкое свечение в центре */}
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-3xl" style={{ background: "rgba(232,0,122,0.12)" }} />
+          <div className="absolute bottom-10 right-10 w-[300px] h-[300px] rounded-full blur-3xl" style={{ background: "rgba(255,140,0,0.12)" }} />
         </div>
 
+        {/* Плавающие точки */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {[...Array(8)].map((_, i) => (
             <div
               key={i}
               className="absolute rounded-full"
               style={{
-                width: i % 2 === 0 ? "4px" : "2px",
-                height: i % 2 === 0 ? "4px" : "2px",
-                background: i % 2 === 0 ? "rgba(124,58,237,0.5)" : "rgba(6,182,212,0.5)",
+                width: i % 2 === 0 ? "5px" : "3px",
+                height: i % 2 === 0 ? "5px" : "3px",
+                background: i % 2 === 0 ? "rgba(232,0,122,0.6)" : "rgba(255,140,0,0.6)",
                 left: `${10 + i * 11}%`,
                 top: `${15 + (i % 4) * 18}%`,
                 animation: `float ${3 + i * 0.4}s ease-in-out infinite`,
@@ -94,7 +106,7 @@ export default function Index() {
 
         <div className="relative z-10 text-left px-4 max-w-5xl mx-auto rounded-[0.25rem]">
           <div className={`transition-all duration-1000 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-6 text-sm text-[#06b6d4] font-medium">
+            <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-6 text-sm font-medium" style={{ color: "#3a0050" }}>
               <Icon name="Globe" size={14} />
               Туры по всему миру
             </div>
@@ -102,20 +114,20 @@ export default function Index() {
 
           <h1
             className={`font-oswald font-bold mb-6 transition-all duration-1000 delay-200 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-            style={{ textShadow: "0 2px 20px rgba(0,0,0,0.8)" }}
+            style={{ textShadow: "0 2px 20px rgba(255,255,255,0.3)" }}
           >
-            <span className="block text-3xl md:text-5xl text-white/80 tracking-widest uppercase mb-1">Отдыхайте спокойно —</span>
+            <span className="block text-3xl md:text-5xl tracking-widest uppercase mb-1" style={{ color: "#3a0050" }}>Отдыхайте спокойно —</span>
             <span className="block text-4xl md:text-6xl uppercase" style={{
-              background: "linear-gradient(135deg, #a78bfa 0%, #38bdf8 100%)",
+              background: "linear-gradient(135deg, #e8007a 0%, #ff8c00 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
               lineHeight: 1.2,
             }}>мы позаботимся</span>
-            <span className="block text-5xl md:text-7xl text-white uppercase tracking-tight" style={{ lineHeight: 1.1 }}>обо всём</span>
+            <span className="block text-5xl md:text-7xl uppercase tracking-tight" style={{ lineHeight: 1.1, color: "#3a0050" }}>обо всём</span>
           </h1>
 
-          <p className={`text-lg md:text-xl text-gray-300 max-w-2xl mb-10 leading-relaxed transition-all duration-1000 delay-300 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+          <p className={`text-lg md:text-xl max-w-2xl mb-10 leading-relaxed transition-all duration-1000 delay-300 ${heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ color: "#4a0060cc" }}>
             Подбираем отдых под ваши пожелания, контролируем все детали поездки
             и остаёмся на связи, когда это важно.
           </p>
@@ -124,7 +136,7 @@ export default function Index() {
             <button onClick={() => scrollTo("quiz")} className="btn-primary px-8 py-4 rounded-xl font-oswald text-lg uppercase tracking-wide">
               Подобрать тур
             </button>
-            <button onClick={() => scrollTo("booking")} className="glass px-8 py-4 rounded-xl font-oswald text-lg uppercase tracking-wide hover:bg-white/10 transition-all">
+            <button onClick={() => scrollTo("booking")} className="glass px-8 py-4 rounded-xl font-oswald text-lg uppercase tracking-wide transition-all hover:bg-white/30" style={{ color: "#3a0050" }}>
               Оставить заявку
             </button>
           </div>
