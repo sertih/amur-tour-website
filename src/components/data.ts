@@ -13,7 +13,7 @@ export const NAV_ITEMS = [
 ];
 
 export const ROUTES = [
-  { id: 1, title: "ОАЭ — Дубай Deluxe", type: "пляжный", duration: 7, price: 89000, difficulty: "лёгкий", img: RESORT_IMG, description: "Роскошный отдых в сердце Эмиратов: небоскрёбы, золотые пляжи, шоппинг и спа", tag: "Хит сезона" },
+  { id: 1, title: "Китай — Хайнань", type: "пляжный", duration: 7, price: 89000, difficulty: "лёгкий", img: "https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/bucket/9867595d-0b65-419f-9c55-08ea10189184.jpg", description: "Отдых на берегу Южно-Китайского моря по цене обычного отпуска", tag: "Хит сезона" },
   { id: 2, title: "Турция — Анталья All Inclusive", type: "пляжный", duration: 10, price: 52000, difficulty: "лёгкий", img: RESORT_IMG, description: "Отдых для всей семьи в лучших отелях Антальи с системой «всё включено»", tag: "" },
   { id: 3, title: "Таиланд — Пхукет & Самуи", type: "экзотика", duration: 14, price: 115000, difficulty: "средний", img: HERO_IMG, description: "Экзотика Юго-Восточной Азии: тропические острова, храмы и уличная кухня", tag: "Новинка" },
   { id: 4, title: "Мальдивы — Медовый месяц", type: "романтика", duration: 7, price: 195000, difficulty: "лёгкий", img: RESORT_IMG, description: "Бунгало над водой, кораллы, приватный пляж — идеально для двоих", tag: "Эксклюзив" },
