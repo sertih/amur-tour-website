@@ -175,9 +175,7 @@ export default function ToursSection({
                         {route.tag}
                       </div>
                     )}
-                    <div className="absolute bottom-3 left-3">
-                      <span className="text-xs px-2 py-1 rounded-lg capitalize text-white" style={{ background: "rgba(255,255,255,0.25)", backdropFilter: "blur(8px)" }}>{route.type}</span>
-                    </div>
+
                   </div>
                   <div className="p-5">
                     <h3 className="font-oswald text-xl font-bold mb-2" style={{ color: "#3a0050" }}>{route.title}</h3>
