@@ -143,40 +143,16 @@ export default function BookingContactsSection({
               </div>
             </div>
 
-            <div className="rounded-2xl p-6 reveal opacity-0-init animate-fade-up" style={{ background: "rgba(255,255,255,0.65)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.85)" }}>
-              <h3 className="font-oswald text-xl font-bold mb-6" style={{ color: "#3a0050" }}>Напишите нам</h3>
-              <div className="space-y-4">
-                {[
-                  { key: "name", label: "Имя", placeholder: "Ваше имя", type: "text" },
-                  { key: "email", label: "Email", placeholder: "email@example.com", type: "email" },
-                ].map((f) => (
-                  <div key={f.key}>
-                    <label className="text-xs mb-1.5 block uppercase tracking-wide" style={{ color: "#7a4080" }}>{f.label}</label>
-                    <input
-                      type={f.type}
-                      placeholder={f.placeholder}
-                      value={contactForm[f.key as keyof ContactForm]}
-                      onChange={(e) => setContactForm((p) => ({ ...p, [f.key]: e.target.value }))}
-                      className="w-full rounded-xl px-4 py-3 focus:outline-none focus:ring-2 transition-all"
-                      style={{ background: "rgba(255,255,255,0.7)", color: "#3a0050", border: "1.5px solid rgba(74,0,96,0.2)" }}
-                    />
-                  </div>
-                ))}
-                <div>
-                  <label className="text-xs mb-1.5 block uppercase tracking-wide" style={{ color: "#7a4080" }}>Сообщение</label>
-                  <textarea
-                    rows={4}
-                    placeholder="Ваш вопрос или пожелание..."
-                    value={contactForm.message}
-                    onChange={(e) => setContactForm((p) => ({ ...p, message: e.target.value }))}
-                    className="w-full rounded-xl px-4 py-3 focus:outline-none focus:ring-2 transition-all resize-none"
-                    style={{ background: "rgba(255,255,255,0.7)", color: "#3a0050", border: "1.5px solid rgba(74,0,96,0.2)" }}
-                  />
-                </div>
-                <button className="btn-primary w-full py-3 rounded-xl font-oswald uppercase tracking-wide">
-                  Отправить сообщение
-                </button>
-              </div>
+            <div className="rounded-2xl overflow-hidden reveal opacity-0-init animate-fade-up" style={{ border: "1px solid rgba(255,255,255,0.85)", minHeight: "360px" }}>
+              <h3 className="font-oswald text-xl font-bold px-6 py-4" style={{ background: "rgba(255,255,255,0.65)", backdropFilter: "blur(12px)", color: "#3a0050" }}>Мы на карте</h3>
+              <iframe
+                src="https://yandex.ru/map-widget/v1/?ll=135.073638%2C48.480736&z=17&pt=135.073638%2C48.480736,pm2rdm&text=%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2C%20%D1%83%D0%BB.%20%D0%A0%D0%B0%D0%B4%D0%B8%D1%89%D0%B5%D0%B2%D0%B0%206%2F2"
+                width="100%"
+                height="360"
+                style={{ border: "none", display: "block" }}
+                allowFullScreen
+                title="Офис на карте"
+              />
             </div>
           </div>
         </div>
