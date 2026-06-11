@@ -66,22 +66,14 @@ export default function Index() {
 
       {/* HERO */}
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: "#8dd8e8" }}>
-        {/* Бирюзовый фон с мягкими акцентами */}
-        <div className="absolute inset-0 overflow-hidden">
-          {/* Светлое бирюзовое свечение сверху */}
-          <div className="absolute -top-20 -left-10 w-[130%] h-[60%]" style={{
-            background: "linear-gradient(160deg, #a8eef8 0%, #8dd8e8 60%, #6cc8dc 100%)",
-            borderRadius: "0 0 60% 40%",
-            opacity: 0.7,
-          }} />
-          {/* Нежно-розовый акцент снизу справа */}
-          <div className="absolute bottom-0 right-0 w-[50%] h-[40%]" style={{
-            background: "linear-gradient(220deg, transparent 0%, rgba(232,0,122,0.08) 100%)",
-            borderRadius: "60% 0 0 0",
-          }} />
-          {/* Мягкое свечение в центре */}
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-3xl" style={{ background: "rgba(141,216,232,0.3)" }} />
-          <div className="absolute bottom-10 right-10 w-[300px] h-[300px] rounded-full blur-3xl" style={{ background: "rgba(255,140,0,0.06)" }} />
+        {/* Фоновое фото курорта */}
+        <div className="absolute inset-0">
+          <img
+            src="https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/files/f6a89bdb-2e40-46c9-9320-5380f4116fd1.jpg"
+            alt="Тропический курорт"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(160deg, rgba(141,216,232,0.72) 0%, rgba(100,190,210,0.55) 50%, rgba(58,0,80,0.15) 100%)" }} />
         </div>
 
         {/* Плавающие точки */}
@@ -116,11 +108,7 @@ export default function Index() {
             style={{ textShadow: "0 2px 20px rgba(255,255,255,0.3)" }}
           >
             <span className="block text-3xl md:text-5xl tracking-widest uppercase mb-1" style={{ color: "#3a0050" }}>Отдыхайте спокойно —</span>
-            <span className="block text-4xl md:text-6xl uppercase" style={{
-              color: "#c0005a",
-              lineHeight: 1.2,
-              textShadow: "0 2px 8px rgba(255,255,255,0.6)",
-            }}>мы позаботимся</span>
+            <span className="block text-4xl md:text-6xl uppercase" style={{ color: "#3a0050", lineHeight: 1.2 }}>мы позаботимся</span>
             <span className="block text-5xl md:text-7xl uppercase tracking-tight" style={{ lineHeight: 1.1, color: "#3a0050" }}>обо всём</span>
           </h1>
 
