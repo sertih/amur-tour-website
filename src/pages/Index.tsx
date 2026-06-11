@@ -66,23 +66,22 @@ export default function Index() {
 
       {/* HERO */}
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: "#8dd8e8" }}>
-        {/* Волны как на картинке — оранжево-жёлто-пурпурные */}
+        {/* Бирюзовый фон с мягкими акцентами */}
         <div className="absolute inset-0 overflow-hidden">
-          {/* Оранжево-жёлтая волна сверху */}
-          <div className="absolute -top-20 -left-10 w-[130%] h-[55%]" style={{
-            background: "linear-gradient(160deg, #ff6a00 0%, #ffb300 40%, #ffdd00 65%, #e8007a 100%)",
+          {/* Светлое бирюзовое свечение сверху */}
+          <div className="absolute -top-20 -left-10 w-[130%] h-[60%]" style={{
+            background: "linear-gradient(160deg, #a8eef8 0%, #8dd8e8 60%, #6cc8dc 100%)",
             borderRadius: "0 0 60% 40%",
-            opacity: 0.92,
+            opacity: 0.7,
           }} />
-          {/* Пурпурно-розовая волна поверх */}
-          <div className="absolute -top-10 -left-10 w-[85%] h-[45%]" style={{
-            background: "linear-gradient(140deg, #c0007a 0%, #e8007a 50%, #ff4fb0 100%)",
-            borderRadius: "0 0 80% 20%",
-            opacity: 0.85,
+          {/* Нежно-розовый акцент снизу справа */}
+          <div className="absolute bottom-0 right-0 w-[50%] h-[40%]" style={{
+            background: "linear-gradient(220deg, transparent 0%, rgba(232,0,122,0.08) 100%)",
+            borderRadius: "60% 0 0 0",
           }} />
           {/* Мягкое свечение в центре */}
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-3xl" style={{ background: "rgba(232,0,122,0.12)" }} />
-          <div className="absolute bottom-10 right-10 w-[300px] h-[300px] rounded-full blur-3xl" style={{ background: "rgba(255,140,0,0.12)" }} />
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-3xl" style={{ background: "rgba(141,216,232,0.3)" }} />
+          <div className="absolute bottom-10 right-10 w-[300px] h-[300px] rounded-full blur-3xl" style={{ background: "rgba(255,140,0,0.06)" }} />
         </div>
 
         {/* Плавающие точки */}
