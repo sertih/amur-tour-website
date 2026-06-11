@@ -109,7 +109,6 @@ export default function QuizSection({ onBookRoute }: QuizSectionProps) {
   const handleSubmit = () => {
     if (name.trim() && phone.trim()) {
       setSubmitted(true);
-      onBookRoute(answers["country"] || "");
     }
   };
 
