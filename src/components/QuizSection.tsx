@@ -106,27 +106,8 @@ export default function QuizSection({ onBookRoute }: QuizSectionProps) {
     setSubmitted(false);
   };
 
-  const LABELS: Record<string, Record<string, string>> = {
-    duration: { short: "до 7 дней", medium: "8–12 дней", long: "две недели и больше" },
-    budget: { low: "до 60 000 ₽", mid: "60 000 – 100 000 ₽", high: "более 100 000 ₽" },
-    company: { solo: "один/одна", couple: "вдвоём", family: "с семьёй и детьми", group: "компания друзей" },
-    hotel: { budget: "3★ бюджетный", comfort: "4★ комфортный", luxury: "5★ люкс" },
-  };
-
   const handleSubmit = () => {
     if (name.trim() && phone.trim()) {
-      const text = [
-        `🌴 Новая заявка с квиза — Авиа Нэкст Тур`,
-        ``,
-        `👤 Имя: ${name}`,
-        `📞 Телефон: ${phone}`,
-        `🌍 Страна: ${answers.country || "—"}`,
-        `📅 Длительность: ${LABELS.duration[answers.duration] || answers.duration || "—"}`,
-        `💰 Бюджет: ${LABELS.budget[answers.budget] || answers.budget || "—"}`,
-        `👥 Компания: ${LABELS.company[answers.company] || answers.company || "—"}`,
-        `🏨 Отель: ${LABELS.hotel[answers.hotel] || answers.hotel || "—"}`,
-      ].join("\n");
-      window.open(`https://wa.me/79141793837?text=${encodeURIComponent(text)}`, "_blank");
       setSubmitted(true);
     }
   };

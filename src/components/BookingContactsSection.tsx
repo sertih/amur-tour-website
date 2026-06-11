@@ -92,21 +92,7 @@ export default function BookingContactsSection({
                 </div>
               </div>
             </div>
-            <button
-              className="btn-primary w-full mt-8 py-4 rounded-xl font-oswald text-lg uppercase tracking-wide"
-              onClick={() => {
-                const text = [
-                  `✈️ Новая заявка на бронирование — Авиа Нэкст Тур`,
-                  ``,
-                  `👤 Имя: ${bookingForm.name || "—"}`,
-                  `📞 Телефон: ${bookingForm.phone || "—"}`,
-                  `🌍 Тур: ${bookingForm.route || "—"}`,
-                  `📅 Дата: ${bookingForm.date || "—"}`,
-                  `👥 Человек: ${bookingForm.people || "—"}`,
-                ].join("\n");
-                window.open(`https://wa.me/79141793837?text=${encodeURIComponent(text)}`, "_blank");
-              }}
-            >
+            <button className="btn-primary w-full mt-8 py-4 rounded-xl font-oswald text-lg uppercase tracking-wide">
               Отправить заявку
             </button>
             <p className="text-center text-xs mt-4" style={{ color: "#a060b0" }}>
