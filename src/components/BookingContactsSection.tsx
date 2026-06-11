@@ -130,12 +130,12 @@ export default function BookingContactsSection({
                 ))}
               </div>
               <div className="flex flex-wrap gap-4">
-                <button className="rounded-xl px-4 py-3 flex items-center gap-2 transition-all text-sm font-medium" style={{ background: "rgba(255,255,255,0.6)", color: "#3a0050", border: "1px solid rgba(74,0,96,0.2)" }}>
+                <a href="https://t.me/naekvatorekhv" target="_blank" rel="noopener noreferrer" className="rounded-xl px-4 py-3 flex items-center gap-2 transition-all text-sm font-medium" style={{ background: "rgba(255,255,255,0.6)", color: "#3a0050", border: "1px solid rgba(74,0,96,0.2)" }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.26 13.593l-2.969-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.897.966z" fill="#29B6F6"/>
                   </svg>
                   Telegram
-                </button>
+                </a>
                 <div className="rounded-xl px-4 py-3 flex items-center gap-2 text-sm font-medium" style={{ background: "rgba(255,255,255,0.6)", color: "#3a0050", border: "1px solid rgba(74,0,96,0.2)" }}>
                   <img src="https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/bucket/733a3b65-944a-4d88-b4f7-945e23578f9d.png" width="28" height="28" />
                   MAX
