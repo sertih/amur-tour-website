@@ -73,7 +73,7 @@ export default function Index() {
             alt="Тропический курорт"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(160deg, rgba(141,216,232,0.72) 0%, rgba(100,190,210,0.55) 50%, rgba(58,0,80,0.15) 100%)" }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(160deg, rgba(141,216,232,0.88) 0%, rgba(100,190,210,0.80) 50%, rgba(58,0,80,0.25) 100%)" }} />
         </div>
 
         {/* Плавающие точки */}
