@@ -136,10 +136,10 @@ export default function BookingContactsSection({
                   </svg>
                   Telegram
                 </a>
-                <div className="rounded-xl px-4 py-3 flex items-center gap-2 text-sm font-medium" style={{ background: "rgba(255,255,255,0.6)", color: "#3a0050", border: "1px solid rgba(74,0,96,0.2)" }}>
+                <a href="https://max.ru/join/_epclTfantWzVhzhNUthxROCbw-XK8CuoBWxp5WgTsw" target="_blank" rel="noopener noreferrer" className="rounded-xl px-4 py-3 flex items-center gap-2 text-sm font-medium transition-all" style={{ background: "rgba(255,255,255,0.6)", color: "#3a0050", border: "1px solid rgba(74,0,96,0.2)" }}>
                   <img src="https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/bucket/733a3b65-944a-4d88-b4f7-945e23578f9d.png" width="28" height="28" />
                   MAX
-                </div>
+                </a>
               </div>
             </div>
 
