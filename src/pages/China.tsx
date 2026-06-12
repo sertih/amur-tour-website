@@ -111,12 +111,13 @@ export default function China() {
             style={{ aspectRatio: "9/16" }}
             onClick={(e) => e.stopPropagation()}
           >
-            <iframe
-              src="https://rutube.ru/play/embed/3ae8733a6b22a6796b2aa1d7df5e991e/?p=c3Lw_OybuZ2B-9IPQr26ZQ&autoplay=1"
+            <video
+              src="https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/bucket/videos/hainan-summer.mp4"
               className="w-full h-full rounded-2xl"
-              style={{ border: "none" }}
-              allow="autoplay; encrypted-media; fullscreen"
-              allowFullScreen
+              style={{ background: "#000" }}
+              controls
+              autoPlay
+              playsInline
             />
             <button
               onClick={() => setVideoOpen(false)}
