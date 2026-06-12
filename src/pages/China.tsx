@@ -1,3 +1,4 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
@@ -86,6 +87,10 @@ const typeColor: Record<string, string> = {
 
 export default function China() {
   const navigate = useNavigate();
+
+  React.useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
 
   const bookTour = (title: string) => {
     sessionStorage.setItem("bookTour", `Китай — ${title}`);
