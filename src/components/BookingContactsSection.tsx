@@ -169,7 +169,7 @@ export default function BookingContactsSection({
               <Icon name="Plane" size={16} className="text-white" />
             </div>
             <span className="font-oswald font-bold text-lg">
-              <span style={{ background: "linear-gradient(135deg, #e8007a, #ff8c00)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>АВИА НЕКСТ</span>
+              <span style={{ background: "linear-gradient(135deg, #e8007a, #ff8c00)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>АВИА НЭКСТ</span>
               <span className="ml-1" style={{ color: "#3a0050" }}>ТУР</span>
             </span>
           </div>
