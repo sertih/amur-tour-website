@@ -173,9 +173,7 @@ export default function BookingContactsSection({
               <span className="ml-1" style={{ color: "#3a0050" }}>ТУР</span>
             </span>
           </div>
-          <p className="text-sm text-center" style={{ color: "#7a4080" }}>
-            © 2025 Авиа Некст Тур. Все права защищены.
-          </p>
+          <p className="text-sm text-center" style={{ color: "#7a4080" }}>© 2025 Авиа Нэкст Тур. Все права защищены.</p>
           <div className="flex gap-4 text-sm">
             <button className="transition-colors" style={{ color: "#a060b0" }}>Политика конфиденциальности</button>
           </div>
