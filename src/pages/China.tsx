@@ -88,7 +88,7 @@ export default function China() {
   const navigate = useNavigate();
 
   const bookTour = (title: string) => {
-    sessionStorage.setItem("bookTour", title);
+    sessionStorage.setItem("bookTour", `Китай — ${title}`);
     navigate("/");
   };
 

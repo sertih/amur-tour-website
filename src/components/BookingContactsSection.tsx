@@ -47,17 +47,20 @@ export default function BookingContactsSection({
                 <label className="text-sm mb-2 block uppercase tracking-wide" style={{ color: "#7a4080" }}>Тур</label>
                 <div className="relative">
                   <Icon name="Map" size={16} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "#a060b0" } as React.CSSProperties} />
-                  <select
+                  <input
+                    type="text"
+                    list="routes-list"
+                    placeholder="Выберите или введите тур"
                     value={bookingForm.route}
                     onChange={(e) => setBookingForm((p) => ({ ...p, route: e.target.value }))}
-                    className="w-full rounded-xl pl-10 pr-4 py-3 focus:outline-none focus:ring-2 transition-all appearance-none"
+                    className="w-full rounded-xl pl-10 pr-4 py-3 focus:outline-none focus:ring-2 transition-all"
                     style={{ background: "rgba(255,255,255,0.7)", color: "#3a0050", border: "1.5px solid rgba(74,0,96,0.2)" }}
-                  >
-                    <option value="" style={{ background: "#e8f8fc" }}>Выберите тур</option>
+                  />
+                  <datalist id="routes-list">
                     {ROUTES.map((r) => (
-                      <option key={r.id} value={r.title} style={{ background: "#e8f8fc" }}>{r.title}</option>
+                      <option key={r.id} value={r.title} />
                     ))}
-                  </select>
+                  </datalist>
                 </div>
               </div>
               <div>
