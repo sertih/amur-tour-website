@@ -175,7 +175,7 @@ export default function China() {
                 {tour.id === 3 ? (
                   <button
                     onClick={() => setVideoOpen(true)}
-                    className="block w-full h-full relative group cursor-pointer"
+                    className="block w-full h-full relative group cursor-pointer z-10"
                   >
                     <img
                       src="https://img.youtube.com/vi/JmvS563KCjE/maxresdefault.jpg"
@@ -191,7 +191,7 @@ export default function China() {
                 ) : (
                   <img src={tour.img} alt={tour.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
                 )}
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(58,0,80,0.6), transparent)" }} />
+                <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(58,0,80,0.6), transparent)" }} />
                 {tour.tag && (
                   <div className="absolute top-3 right-3 text-white text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #e8007a, #ff8c00)" }}>
                     {tour.tag}
