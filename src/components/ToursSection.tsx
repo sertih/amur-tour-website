@@ -222,7 +222,7 @@ export default function ToursSection({
               <span className="font-medium uppercase tracking-widest text-sm" style={{ color: "#e8007a" }}>Кто мы</span>
               <h2 className="font-oswald text-4xl md:text-5xl font-bold mt-2 mb-6" style={{ color: "#3a0050" }}>
                 О КОМПАНИИ<br />
-                <span style={{ background: "linear-gradient(135deg, #e8007a, #ff8c00)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>АВИА НЕКСТ ТУР</span>
+                <span style={{ background: "linear-gradient(135deg, #e8007a, #ff8c00)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>АВИА НЭКСТ ТУР</span>
               </h2>
               <p className="leading-relaxed py-2.5 px-0 mx-[5px] my-[15px]" style={{ color: "#4a0060" }}>Наша туристическая компания помогает клиентам открывать новые страны, знакомиться с уникальными культурами и отдыхать без лишних забот. Мы уверены: идеальный отпуск начинается не в аэропорту, а с профессиональной организации каждой детали поездки</p>
               <p className="leading-relaxed mb-8" style={{ color: "#4a0060" }}>
