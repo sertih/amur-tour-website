@@ -43,6 +43,15 @@ export default function Index() {
     setTimeout(() => setHeroLoaded(true), 100);
   }, []);
 
+  useEffect(() => {
+    const tour = sessionStorage.getItem("bookTour");
+    if (tour) {
+      sessionStorage.removeItem("bookTour");
+      setBookingForm((p) => ({ ...p, route: tour }));
+      setTimeout(() => document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" }), 400);
+    }
+  }, []);
+
   const scrollTo = (id: string) => {
     setActiveSection(id);
     setMenuOpen(false);

@@ -87,14 +87,9 @@ const typeColor: Record<string, string> = {
 export default function China() {
   const navigate = useNavigate();
 
-  const bookTour = (_title: string) => {
-    const section = document.getElementById("booking");
-    if (section) {
-      navigate("/");
-      setTimeout(() => document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" }), 300);
-    } else {
-      navigate("/#booking");
-    }
+  const bookTour = (title: string) => {
+    sessionStorage.setItem("bookTour", title);
+    navigate("/");
   };
 
   return (
