@@ -87,13 +87,14 @@ const typeColor: Record<string, string> = {
 export default function China() {
   const navigate = useNavigate();
 
-  const bookTour = (title: string) => {
-    const text = [
-      `✈️ Хочу забронировать тур — ${title} (Китай)`,
-      ``,
-      `Прошу связаться со мной для уточнения деталей.`,
-    ].join("\n");
-    window.open(`https://wa.me/79141793837?text=${encodeURIComponent(text)}`, "_blank");
+  const bookTour = (_title: string) => {
+    const section = document.getElementById("booking");
+    if (section) {
+      navigate("/");
+      setTimeout(() => document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" }), 300);
+    } else {
+      navigate("/#booking");
+    }
   };
 
   return (
