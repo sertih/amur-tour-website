@@ -145,13 +145,23 @@ export default function China() {
               {/* Image */}
               <div className="relative h-48 overflow-hidden flex-shrink-0">
                 {tour.id === 3 ? (
-                  <iframe
-                    src="https://www.youtube.com/embed/JmvS563KCjE?autoplay=1&mute=1&loop=1&playlist=JmvS563KCjE&controls=0&modestbranding=1&playsinline=1"
-                    className="w-full h-full"
-                    style={{ border: "none", pointerEvents: "none" }}
-                    allow="autoplay; encrypted-media"
-                    allowFullScreen
-                  />
+                  <a
+                    href="https://youtube.com/shorts/JmvS563KCjE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full h-full relative group"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/JmvS563KCjE/maxresdefault.jpg"
+                      alt="Хайнань"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-all">
+                      <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                        <Icon name="Play" size={24} className="ml-1" style={{ color: "#e8007a" }} />
+                      </div>
+                    </div>
+                  </a>
                 ) : (
                   <img src={tour.img} alt={tour.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
                 )}
