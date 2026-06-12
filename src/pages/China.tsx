@@ -134,7 +134,7 @@ export default function China() {
             ТУРЫ В КИТАЙ
           </h1>
           <p className="text-lg max-w-2xl" style={{ color: "rgba(255,255,255,0.75)" }}>
-            {CHINA_TOURS.length} направлений — от тропических пляжей Хайнаня до Великой стены и терракотовой армии
+            {CHINA_TOURS.length} направления — тропические пляжи, девичники и незабываемый отдых на Хайнане
           </p>
         </div>
       </div>
