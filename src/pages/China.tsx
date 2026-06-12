@@ -139,7 +139,17 @@ export default function China() {
             >
               {/* Image */}
               <div className="relative h-48 overflow-hidden flex-shrink-0">
-                <img src={tour.img} alt={tour.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                {tour.id === 3 ? (
+                  <iframe
+                    src="https://www.youtube.com/embed/JmvS563KCjE?autoplay=1&mute=1&loop=1&playlist=JmvS563KCjE&controls=0&modestbranding=1&playsinline=1"
+                    className="w-full h-full"
+                    style={{ border: "none", pointerEvents: "none" }}
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                  />
+                ) : (
+                  <img src={tour.img} alt={tour.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                )}
                 <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(58,0,80,0.6), transparent)" }} />
                 {tour.tag && (
                   <div className="absolute top-3 right-3 text-white text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #e8007a, #ff8c00)" }}>
