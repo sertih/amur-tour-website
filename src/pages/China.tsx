@@ -179,7 +179,7 @@ export default function China() {
                     className="block w-full h-full relative group cursor-pointer z-10"
                   >
                     <img
-                      src="https://img.youtube.com/vi/JmvS563KCjE/maxresdefault.jpg"
+                      src="https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/files/ba47d7f8-59cf-4534-9088-afc766dac9bd.jpg"
                       alt="Хайнань"
                       className="w-full h-full object-cover"
                     />
