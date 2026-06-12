@@ -41,15 +41,15 @@ const CHINA_TOURS = [
   },
   {
     id: 4,
-    title: "Гуйлинь — горы и реки",
-    subtitle: "Природные чудеса Китая",
-    duration: 9,
-    price: 92000,
-    type: "природный",
+    title: "Девичник на Хайнане",
+    subtitle: "Остров Хайнань",
+    duration: 8,
+    price: 115000,
+    type: "пляжный",
     tag: "",
-    img: "https://images.unsplash.com/photo-1537471942344-fa0a51c42428?w=800&q=80",
-    description: "Карстовые горы, изумрудные реки и террасные поля Лунцзи — пейзажи, как с картин древних мастеров. Речной круиз по Ли.",
-    highlights: ["Река Ли", "Рисовые террасы", "Пещера тростниковой флейты", "Холмы слонового хобота"],
+    img: "https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/files/8fa869a4-020d-4f58-bc9a-02188b4f4a59.jpg",
+    description: "Программа мечты:\n1 день — вылет на о. Хайнань.\n2 день — завтрак в отеле, свободное время, море, солнце, пляж.\n3 день — поездка на радоновые источники, ванны с лепестками роз.\n4 день — шопинг, йога, массаж.\n5 день — поездка на фотосессию на розовом пляже в стиле «Барби».\n6 день — морская прогулка вокруг о. Феникс.\n7 день — свободное время, экскурсии по желанию за доп. плату.\n8 день — трансфер в аэропорт, вылет в Хабаровск.",
+    highlights: ["Радоновые источники", "Розовый пляж «Барби»", "Морская прогулка", "Йога и массаж"],
   },
   {
     id: 5,
@@ -215,7 +215,7 @@ export default function China() {
                   <h3 className="font-oswald text-xl font-bold" style={{ color: "#3a0050" }}>{tour.title}</h3>
                 </div>
 
-                <p className="text-sm mt-2 mb-4 leading-relaxed flex-1" style={{ color: "#5a3070" }}>{tour.description}</p>
+                <p className="text-sm mt-2 mb-4 leading-relaxed flex-1 whitespace-pre-line" style={{ color: "#5a3070" }}>{tour.description}</p>
 
                 {/* Highlights */}
                 <div className="flex flex-wrap gap-1.5 mb-4">
