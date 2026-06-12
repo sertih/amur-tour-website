@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import { ROUTES, REVIEWS, PEOPLE_IMG, FilterState } from "@/components/data";
 
@@ -32,6 +33,7 @@ export default function ToursSection({
   hotel, setHotel,
   onBookRoute,
 }: ToursSectionProps) {
+  const navigate = useNavigate();
   const filteredRoutes = ROUTES.filter((r) => {
     if (filters.duration !== "все") {
       if (filters.duration === "1-7" && !(r.duration >= 1 && r.duration <= 7)) return false;
@@ -164,9 +166,16 @@ export default function ToursSection({
               {filteredRoutes.map((route, i) => (
                 <div
                   key={route.id}
-                  className="rounded-2xl overflow-hidden card-hover cursor-pointer reveal opacity-0-init animate-fade-up flex flex-col"
-                  style={{ animationDelay: `${i * 0.1}s`, background: "rgba(255,255,255,0.65)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.8)" }}
+                  className="rounded-2xl overflow-hidden card-hover cursor-pointer reveal opacity-0-init animate-fade-up flex flex-col relative"
+                  style={{ animationDelay: `${i * 0.1}s`, background: "rgba(255,255,255,0.65)", backdropFilter: "blur(12px)", border: route.title.startsWith("Китай") ? "2px solid #e8007a" : "1px solid rgba(255,255,255,0.8)" }}
+                  onClick={route.title.startsWith("Китай") ? () => navigate("/china") : undefined}
                 >
+                  {route.title.startsWith("Китай") && (
+                    <div className="absolute top-3 left-3 z-10 flex items-center gap-1 text-white text-xs font-bold px-2.5 py-1 rounded-full" style={{ background: "rgba(58,0,80,0.75)", backdropFilter: "blur(4px)" }}>
+                      <Icon name="FolderOpen" size={12} />
+                      Смотреть все туры
+                    </div>
+                  )}
                   <div className="relative h-48 overflow-hidden flex-shrink-0">
                     <img src={route.img} alt={route.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
                     <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(58,0,80,0.6), transparent)" }} />
