@@ -87,6 +87,7 @@ const typeColor: Record<string, string> = {
 
 export default function China() {
   const navigate = useNavigate();
+  const [videoOpen, setVideoOpen] = React.useState(false);
 
   React.useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -99,6 +100,33 @@ export default function China() {
 
   return (
     <div style={{ minHeight: "100vh", background: "linear-gradient(160deg, #ff8c0010 0%, #e8007a08 40%, #b8ecf5 100%)" }}>
+
+      {videoOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+          onClick={() => setVideoOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-sm mx-4"
+            style={{ aspectRatio: "9/16" }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <iframe
+              src="https://www.youtube.com/embed/JmvS563KCjE?autoplay=1&playsinline=1"
+              className="w-full h-full rounded-2xl"
+              style={{ border: "none" }}
+              allow="autoplay; encrypted-media; fullscreen"
+              allowFullScreen
+            />
+            <button
+              onClick={() => setVideoOpen(false)}
+              className="absolute -top-10 right-0 text-white/80 hover:text-white transition-colors"
+            >
+              <Icon name="X" size={28} />
+            </button>
+          </div>
+        </div>
+      )}
       {/* Header */}
       <div
         className="relative py-20 px-4 overflow-hidden"
@@ -145,11 +173,9 @@ export default function China() {
               {/* Image */}
               <div className="relative h-48 overflow-hidden flex-shrink-0">
                 {tour.id === 3 ? (
-                  <a
-                    href="https://youtube.com/shorts/JmvS563KCjE"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full h-full relative group"
+                  <button
+                    onClick={() => setVideoOpen(true)}
+                    className="block w-full h-full relative group cursor-pointer"
                   >
                     <img
                       src="https://img.youtube.com/vi/JmvS563KCjE/maxresdefault.jpg"
@@ -161,7 +187,7 @@ export default function China() {
                         <Icon name="Play" size={24} className="ml-1" style={{ color: "#e8007a" }} />
                       </div>
                     </div>
-                  </a>
+                  </button>
                 ) : (
                   <img src={tour.img} alt={tour.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
                 )}
