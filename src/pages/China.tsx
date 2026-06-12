@@ -112,7 +112,7 @@ export default function China() {
             onClick={(e) => e.stopPropagation()}
           >
             <iframe
-              src="https://www.youtube.com/embed/JmvS563KCjE?autoplay=1&playsinline=1"
+              src="https://rutube.ru/play/embed/3ae8733a6b22a6796b2aa1d7df5e991e/?p=c3Lw_OybuZ2B-9IPQr26ZQ&autoplay=1"
               className="w-full h-full rounded-2xl"
               style={{ border: "none" }}
               allow="autoplay; encrypted-media; fullscreen"
