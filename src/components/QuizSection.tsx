@@ -18,7 +18,7 @@ export default function QuizSection({ onBookRoute }: QuizSectionProps) {
   const navigate = useNavigate();
 
   return (
-    <section id="quiz" className="py-24 px-4" style={{ background: "hsl(182, 22%, 93%)" }}>
+    <section id="quiz" className="py-24 px-4" style={{ background: "#b8ecf5" }}>
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12 reveal opacity-0-init animate-fade-up">
           <h2 className="font-oswald text-4xl md:text-5xl font-bold mt-2 mb-4" style={{ color: "#3a0050" }}>ВЫБЕРИТЕ НАПРАВЛЕНИЕ</h2>

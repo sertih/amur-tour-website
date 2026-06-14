@@ -76,7 +76,7 @@ export default function China() {
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: "hsl(182, 22%, 93%)" }}>
+    <div style={{ minHeight: "100vh", background: "#b8ecf5" }}>
 
       {videoOpen && (
         <div

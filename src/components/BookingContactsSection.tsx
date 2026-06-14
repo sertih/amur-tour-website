@@ -15,7 +15,7 @@ export default function BookingContactsSection({
   return (
     <>
       {/* BOOKING */}
-      <section id="booking" className="py-24 px-4" style={{ background: "hsl(182, 22%, 93%)" }}>
+      <section id="booking" className="py-24 px-4" style={{ background: "#b8ecf5" }}>
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 reveal opacity-0-init animate-fade-up">
             <span className="font-medium uppercase tracking-widest text-sm" style={{ color: "#e8007a" }}>Запишитесь прямо сейчас</span>
@@ -106,7 +106,7 @@ export default function BookingContactsSection({
       </section>
 
       {/* CONTACTS */}
-      <section id="contacts" className="py-24 px-4" style={{ background: "hsl(182, 22%, 93%)" }}>
+      <section id="contacts" className="py-24 px-4" style={{ background: "#b8ecf5" }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 reveal opacity-0-init animate-fade-up">
             <span className="font-medium uppercase tracking-widest text-sm" style={{ color: "#e8007a" }}>Свяжитесь с нами</span>
