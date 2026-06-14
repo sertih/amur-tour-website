@@ -10,7 +10,7 @@ interface NavBarProps {
 
 export default function NavBar({ activeSection, menuOpen, setMenuOpen, scrollTo }: NavBarProps) {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50" style={{ background: "rgba(141,216,232,0.75)", backdropFilter: "blur(14px)", borderBottom: "1px solid rgba(255,255,255,0.4)" }}>
+    <nav className="fixed top-0 left-0 right-0 z-50" style={{ background: "rgba(210,235,235,0.82)", backdropFilter: "blur(14px)", borderBottom: "1px solid rgba(255,255,255,0.4)" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => scrollTo("home")}>
           <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "linear-gradient(135deg, #e8007a, #ff8c00)" }}>
@@ -41,7 +41,7 @@ export default function NavBar({ activeSection, menuOpen, setMenuOpen, scrollTo 
       </div>
 
       {menuOpen && (
-        <div className="md:hidden border-t px-4 py-4 flex flex-col gap-3" style={{ background: "rgba(141,216,232,0.9)", borderColor: "rgba(255,255,255,0.4)" }}>
+        <div className="md:hidden border-t px-4 py-4 flex flex-col gap-3" style={{ background: "rgba(210,235,235,0.97)", borderColor: "rgba(255,255,255,0.4)" }}>
           {NAV_ITEMS.map((item) => (
             <button
               key={item.id}

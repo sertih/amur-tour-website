@@ -22,7 +22,7 @@ export default function BookingContactsSection({
             <h2 className="font-oswald text-4xl md:text-5xl font-bold mt-2 mb-4" style={{ color: "#3a0050" }}>БРОНИРОВАНИЕ</h2>
             <div className="w-16 h-1 mx-auto rounded-full" style={{ background: "linear-gradient(to right, #e8007a, #ff8c00)" }} />
           </div>
-          <div className="rounded-3xl p-8 md:p-12 reveal opacity-0-init animate-scale-in" style={{ background: "rgba(255,255,255,0.65)", backdropFilter: "blur(16px)", border: "1px solid rgba(255,255,255,0.85)" }}>
+          <div className="rounded-3xl p-8 md:p-12 reveal opacity-0-init animate-scale-in" style={{ background: "rgba(195,228,228,0.5)", backdropFilter: "blur(16px)", border: "1px solid rgba(255,255,255,0.6)" }}>
             <div className="grid md:grid-cols-2 gap-6">
               {[
                 { key: "name", label: "Ваше имя", placeholder: "Иван Иванов", type: "text", icon: "User" },

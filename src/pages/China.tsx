@@ -146,7 +146,7 @@ export default function China() {
             <div
               key={tour.id}
               className="rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-              style={{ background: "rgba(255,255,255,0.75)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.85)" }}
+              style={{ background: "rgba(195,228,228,0.55)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.6)" }}
             >
               {/* Image */}
               <div className="relative h-48 overflow-hidden flex-shrink-0">

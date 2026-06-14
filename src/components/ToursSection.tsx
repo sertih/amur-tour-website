@@ -66,7 +66,7 @@ export default function ToursSection({
           </div>
 
           {/* Filters */}
-          <div className="rounded-2xl p-6 mb-10 reveal opacity-0-init animate-fade-up animate-delay-200" style={{ background: "rgba(255,255,255,0.55)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.7)" }}>
+          <div className="rounded-2xl p-6 mb-10 reveal opacity-0-init animate-fade-up animate-delay-200" style={{ background: "rgba(195,228,228,0.5)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.6)" }}>
             <div className="flex items-center gap-2 mb-5" style={{ color: "#e8007a" }}>
               <Icon name="SlidersHorizontal" size={18} />
               <span className="font-medium">Фильтры туров</span>
@@ -167,7 +167,7 @@ export default function ToursSection({
                 <div
                   key={route.id}
                   className="rounded-2xl overflow-hidden card-hover cursor-pointer reveal opacity-0-init animate-fade-up flex flex-col relative"
-                  style={{ animationDelay: `${i * 0.1}s`, background: "rgba(255,255,255,0.65)", backdropFilter: "blur(12px)", border: route.title.startsWith("Китай") ? "2px solid #e8007a" : "1px solid rgba(255,255,255,0.8)" }}
+                  style={{ animationDelay: `${i * 0.1}s`, background: "rgba(195,228,228,0.55)", backdropFilter: "blur(12px)", border: route.title.startsWith("Китай") ? "2px solid #e8007a" : "1px solid rgba(255,255,255,0.6)" }}
                   onClick={route.title.startsWith("Китай") ? () => navigate("/china") : undefined}
                 >
                   {route.title.startsWith("Китай") && (

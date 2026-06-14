@@ -26,7 +26,7 @@ export default function QuizSection({ onBookRoute }: QuizSectionProps) {
           <div className="w-16 h-1 mx-auto rounded-full" style={{ background: "linear-gradient(to right, #e8007a, #ff8c00)" }} />
         </div>
 
-        <div className="rounded-3xl p-8 md:p-12" style={{ background: "rgba(255,255,255,0.65)", backdropFilter: "blur(16px)", border: "1px solid rgba(255,255,255,0.85)" }}>
+        <div className="rounded-3xl p-8 md:p-12" style={{ background: "rgba(195,228,228,0.5)", backdropFilter: "blur(16px)", border: "1px solid rgba(255,255,255,0.6)" }}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {DESTINATIONS.map((dest) => (
               <button
