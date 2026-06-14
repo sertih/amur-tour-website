@@ -215,7 +215,7 @@ export default function ToursSection({
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="py-24 px-4 bg-[#b8ecf5] rounded-none" style={{ background: "linear-gradient(160deg, #e8007a18 0%, #b8ecf5 60%)" }}>
+      <section id="about" className="py-24 px-4" style={{ background: "#b8ecf5" }}>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="reveal opacity-0-init animate-slide-right">
