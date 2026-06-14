@@ -41,7 +41,8 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-montserrat;
+    @apply text-foreground font-montserrat;
+    background-color: hsl(182, 22%, 93%) !important;
     scroll-behavior: smooth;
   }
 }
