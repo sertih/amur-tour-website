@@ -64,7 +64,7 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-[#8dd8e8] font-montserrat text-[#3a0050] overflow-x-hidden">
+    <div className="min-h-screen font-montserrat text-[#3a0050] overflow-x-hidden" style={{ background: "hsl(182, 22%, 93%)" }}>
 
       <NavBar
         activeSection={activeSection}
@@ -74,7 +74,7 @@ export default function Index() {
       />
 
       {/* HERO */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: "#8dd8e8" }}>
+      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: "hsl(182, 22%, 93%)" }}>
         {/* Фоновое фото курорта */}
         <div className="absolute inset-0">
           <img

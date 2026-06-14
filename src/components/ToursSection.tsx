@@ -57,7 +57,7 @@ export default function ToursSection({
   return (
     <>
       {/* TOURS */}
-      <section id="routes" className="py-24 px-4" style={{ background: "#b8ecf5" }}>
+      <section id="routes" className="py-24 px-4" style={{ background: "hsl(182, 22%, 93%)" }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 reveal opacity-0-init animate-fade-up">
             <span className="font-medium uppercase tracking-widest text-sm" style={{ color: "#e8007a" }}>Куда отправиться</span>
