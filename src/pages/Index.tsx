@@ -4,7 +4,7 @@ import NavBar from "@/components/NavBar";
 import ToursSection from "@/components/ToursSection";
 import QuizSection from "@/components/QuizSection";
 import BookingContactsSection from "@/components/BookingContactsSection";
-import { HERO_IMG, FilterState, BookingForm, ContactForm } from "@/components/data";
+import { HERO_IMG, BookingForm, ContactForm } from "@/components/data";
 
 function useScrollReveal() {
   useEffect(() => {
@@ -27,12 +27,7 @@ function useScrollReveal() {
 export default function Index() {
   const [activeSection, setActiveSection] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [filters, setFilters] = useState<FilterState>({ type: "все", duration: "все", price: "все", difficulty: "все" });
-  const [priceFrom, setPriceFrom] = useState("");
-  const [priceTo, setPriceTo] = useState("");
-  const [cityFrom, setCityFrom] = useState("");
-  const [country, setCountry] = useState("");
-  const [hotel, setHotel] = useState("");
+
   const [heroLoaded, setHeroLoaded] = useState(false);
   const [bookingForm, setBookingForm] = useState<BookingForm>({ name: "", phone: "", route: "", date: "", people: "2" });
   const [contactForm, setContactForm] = useState<ContactForm>({ name: "", email: "", message: "" });
@@ -139,21 +134,7 @@ export default function Index() {
 
       <QuizSection onBookRoute={handleBookRoute} />
 
-      <ToursSection
-        filters={filters}
-        setFilters={setFilters}
-        priceFrom={priceFrom}
-        setPriceFrom={setPriceFrom}
-        priceTo={priceTo}
-        setPriceTo={setPriceTo}
-        cityFrom={cityFrom}
-        setCityFrom={setCityFrom}
-        country={country}
-        setCountry={setCountry}
-        hotel={hotel}
-        setHotel={setHotel}
-        onBookRoute={handleBookRoute}
-      />
+      <ToursSection onBookRoute={handleBookRoute} />
 
       <BookingContactsSection
         bookingForm={bookingForm}
