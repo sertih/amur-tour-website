@@ -257,7 +257,7 @@ export default function ToursSection({
       </section>
 
       {/* REVIEWS */}
-      <section id="reviews" className="py-24 px-4" style={{ background: "#b8ecf5" }}>
+      <section id="reviews" className="py-24 px-4 bg-[#b8ecf596]" style={{ background: "#b8ecf5" }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 reveal opacity-0-init animate-fade-up">
             <span className="font-medium uppercase tracking-widest text-sm" style={{ color: "#e8007a" }}>Что говорят клиенты</span>
