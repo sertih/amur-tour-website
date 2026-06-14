@@ -14,48 +14,6 @@ const QUESTIONS = [
       { label: "Сейшелы", value: "Сейшелы", icon: "Anchor" },
       { label: "Япония", value: "Япония", icon: "Cherry" },
     ],
-    allowCustom: true,
-  },
-  {
-    id: "duration",
-    question: "Сколько дней планируете отдыхать?",
-    icon: "Calendar",
-    options: [
-      { label: "До 7 дней", value: "short", icon: "Clock" },
-      { label: "8–12 дней", value: "medium", icon: "CalendarDays" },
-      { label: "Две недели и больше", value: "long", icon: "CalendarRange" },
-    ],
-  },
-  {
-    id: "budget",
-    question: "Какой у вас бюджет на человека?",
-    icon: "Wallet",
-    options: [
-      { label: "До 60 000 ₽", value: "low", icon: "BadgeRussianRuble" },
-      { label: "60 000 – 100 000 ₽", value: "mid", icon: "Banknote" },
-      { label: "Более 100 000 ₽", value: "high", icon: "Gem" },
-    ],
-  },
-  {
-    id: "company",
-    question: "С кем путешествуете?",
-    icon: "Users",
-    options: [
-      { label: "Один / одна", value: "solo", icon: "User" },
-      { label: "Вдвоём", value: "couple", icon: "Heart" },
-      { label: "С семьёй и детьми", value: "family", icon: "Baby" },
-      { label: "Компания друзей", value: "group", icon: "Users" },
-    ],
-  },
-  {
-    id: "hotel",
-    question: "Какой отель предпочитаете?",
-    icon: "Building",
-    options: [
-      { label: "Бюджетный 3★", value: "budget", icon: "Star" },
-      { label: "Комфортный 4★", value: "comfort", icon: "Star" },
-      { label: "Люкс 5★", value: "luxury", icon: "Crown" },
-    ],
   },
 ];
 
@@ -162,21 +120,7 @@ export default function QuizSection({ onBookRoute }: QuizSectionProps) {
                     <span className="font-medium" style={{ color: "#3a0050" }}>{opt.label}</span>
                   </button>
                 ))}
-                {"allowCustom" in current && current.allowCustom && (
-                  <button
-                    onClick={() => setShowCustomInput((v) => !v)}
-                    className="rounded-2xl p-4 flex items-center gap-3 text-left transition-all"
-                    style={showCustomInput
-                      ? { background: "rgba(232,0,122,0.08)", border: "1.5px dashed #e8007a" }
-                      : { background: "rgba(255,255,255,0.5)", border: "1.5px dashed rgba(74,0,96,0.3)" }
-                    }
-                  >
-                    <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(232,0,122,0.1)" }}>
-                      <Icon name="PenLine" size={16} style={{ color: "#e8007a" } as React.CSSProperties} />
-                    </div>
-                    <span className="font-medium" style={{ color: "#7a4080" }}>Свой вариант</span>
-                  </button>
-                )}
+
               </div>
 
               {"allowCustom" in current && current.allowCustom && showCustomInput && (
