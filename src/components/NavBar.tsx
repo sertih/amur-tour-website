@@ -17,8 +17,7 @@ export default function NavBar({ activeSection, menuOpen, setMenuOpen, scrollTo 
             <Icon name="Plane" size={16} className="text-white" />
           </div>
           <div className="font-oswald font-bold text-lg tracking-wider leading-none">
-            <span className="text-gradient">АВИА НЭКСТ</span>
-            <span className="ml-1" style={{ color: "#3a0050" }}>ТУР</span>
+            <span className="text-gradient">АВИА НЭКСТ ТУР</span>
           </div>
         </div>
 
