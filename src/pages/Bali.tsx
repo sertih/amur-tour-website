@@ -1,3 +1,4 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
@@ -11,6 +12,7 @@ const BALI_TOURS = [
     type: "пляжный",
     tag: "Хит сезона",
     img: "https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/bucket/c2bfdf29-3f4c-45e4-a065-d56a571e704a.jpg",
+    video: null,
     description: "Отель расположен в восточной части острова и это погружение в необузданную природу Бали. У отеля большая территория, которая представляет собой туманную долину из кокосовых пальм. Это райское место для того, чтобы побродить и подумать о своем, слушая изумительную тишину. Отель на первой линии, прямо у океана. Что важно: отливы/приливы не выражены, хороший заход в воду и сильные волны здесь случаются редко. Помимо номеров есть размещение в отдельно стоящих бунгало и на виллах с бассейнами. Курорт полностью самодостаточный, есть несколько ресторанов с разной кухней.",
     highlights: ["Первая линия океана", "Бунгало и виллы с бассейном", "Несколько ресторанов", "Кокосовая долина"],
   },
@@ -23,6 +25,7 @@ const BALI_TOURS = [
     type: "пляжный",
     tag: "Популярный",
     img: "https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/bucket/c2bfdf29-3f4c-45e4-a065-d56a571e704a.jpg",
+    video: "https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/bucket/c8e24840-77b1-4133-bbc9-54eee8b64ee2.MP4",
     description: "Отель расположен в живописном регионе Санур с спокойным океаном, идеально подходящим для семейного отдыха и комфортного купания. Рядом находятся магазины, рестораны и основные достопримечательности острова.\n\nТерритория утопает в цветущих садах и впечатляет аутентичной балийской архитектурой. К услугам гостей 4 бассейна: пейзажный с видом на океан, бассейн-лагуна, семейный и детский бассейны.\n\nСтильные светлые номера оформлены с использованием натурального дерева; доступны варианты с прямым выходом к бассейну и расположением рядом с пляжем.\n\nСанур отлично подходит для прогулок и велопоездок вдоль живописной набережной. В отеле также доступны плавающие завтраки, романтические ужины при свечах, а также ежедневные занятия йогой и пилатесом.",
     highlights: ["4 бассейна с видом на океан", "Плавающие завтраки", "Йога и пилатес", "Балийская архитектура"],
   },
@@ -38,6 +41,11 @@ const typeColor: Record<string, string> = {
 
 export default function Bali() {
   const navigate = useNavigate();
+  const [videoOpen, setVideoOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
 
   const bookTour = (title: string) => {
     sessionStorage.setItem("bookTour", `Индонезия — ${title}`);
@@ -46,6 +54,35 @@ export default function Bali() {
 
   return (
     <div style={{ minHeight: "100vh", background: "#b8ecf5" }}>
+
+      {videoOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+          onClick={() => setVideoOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-sm mx-4"
+            style={{ aspectRatio: "9/16" }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <video
+              src="https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/bucket/c8e24840-77b1-4133-bbc9-54eee8b64ee2.MP4"
+              className="w-full h-full rounded-2xl"
+              style={{ background: "#000" }}
+              controls
+              autoPlay
+              playsInline
+            />
+            <button
+              onClick={() => setVideoOpen(false)}
+              className="absolute -top-10 right-0 text-white/80 hover:text-white transition-colors"
+            >
+              <Icon name="X" size={28} />
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Header */}
       <div
         className="relative py-20 px-4 overflow-hidden"
@@ -75,7 +112,7 @@ export default function Bali() {
             ТУРЫ В ИНДОНЕЗИЮ
           </h1>
           <p className="text-lg max-w-2xl" style={{ color: "rgba(255,255,255,0.75)" }}>
-            {BALI_TOURS.length} направление — необузданная природа, океан и виллы с бассейнами на острове Бали
+            {BALI_TOURS.length} направления — необузданная природа, океан и виллы с бассейнами на острове Бали
           </p>
         </div>
       </div>
@@ -90,7 +127,25 @@ export default function Bali() {
               style={{ background: "rgba(195,228,228,0.55)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.6)" }}
             >
               <div className="relative h-48 overflow-hidden flex-shrink-0">
-                <img src={tour.img} alt={tour.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                {tour.video ? (
+                  <button
+                    onClick={() => setVideoOpen(true)}
+                    className="block w-full h-full relative group cursor-pointer z-10"
+                  >
+                    <img
+                      src={tour.img}
+                      alt={tour.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-all">
+                      <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                        <Icon name="Play" size={24} className="ml-1" style={{ color: "#e8007a" }} />
+                      </div>
+                    </div>
+                  </button>
+                ) : (
+                  <img src={tour.img} alt={tour.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                )}
                 <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(58,0,80,0.6), transparent)" }} />
                 {tour.tag && (
                   <div className="absolute top-3 right-3 text-white text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #e8007a, #ff8c00)" }}>
@@ -110,7 +165,7 @@ export default function Bali() {
               <div className="p-5 flex flex-col flex-1">
                 <p className="text-xs uppercase tracking-wide mb-1" style={{ color: "#a060b0" }}>{tour.subtitle}</p>
                 <h3 className="font-oswald text-xl font-bold mb-2" style={{ color: "#3a0050" }}>{tour.title}</h3>
-                <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "#7a4080" }}>{tour.description}</p>
+                <p className="text-sm leading-relaxed mb-4 flex-1 whitespace-pre-line" style={{ color: "#7a4080" }}>{tour.description}</p>
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {tour.highlights.map((h) => (
