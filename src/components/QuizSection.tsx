@@ -5,7 +5,7 @@ const DESTINATIONS = [
   { label: "Таиланд", icon: "TreePalm", route: "/thailand" },
   { label: "Вьетнам", icon: "Waves", route: "/vietnam" },
   { label: "Китай", icon: "Landmark", route: "/china" },
-  { label: "Бали", icon: "Flower2", route: "/bali" },
+  { label: "Индонезия", icon: "Flower2", route: "/bali" },
   { label: "Сейшелы", icon: "Anchor", route: "/seychelles" },
   { label: "Япония", icon: "Cherry", route: "/japan" },
 ];
