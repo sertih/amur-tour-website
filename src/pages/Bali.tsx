@@ -38,7 +38,7 @@ const BALI_TOURS = [
     type: "пляжный",
     tag: "",
     img: "https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/bucket/c2bfdf29-3f4c-45e4-a065-d56a571e704a.jpg",
-    video: null,
+    video: "https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/bucket/a5190eb1-a74a-4a01-a7d8-adab00c8efd8.MP4",
     description: "Демократичный по стоимости пятизвездочный курорт с высоким уровнем сервиса и настоящим балийским гостеприимством. Один из самых колоритных отелей острова, где каждая деталь интерьера и декора передает атмосферу, культуру и магию Бали.\n\nКурорт располагает великолепной зеленой территорией с фонтанами, живописными прудами, экзотическими птицами, рыбами и варанами. Гости могут наслаждаться прогулками по ухоженным садам и кормить обитателей территории.\n\nОдним из главных преимуществ является комфортный пляж с минимальным влиянием приливов и отливов, что позволяет купаться в океане практически в любое время дня. На территории работает первый на острове круглосуточный ресторан.\n\nОтель расположен в центре туристической инфраструктуры: всего в нескольких минутах ходьбы находится торговый центр Bali Collection, а рядом с курортом расположены многочисленные кафе, рестораны и магазины.",
     highlights: ["Пляж без приливов", "Круглосуточный ресторан", "Вараны и экзотические птицы", "Рядом Bali Collection"],
   },
@@ -54,7 +54,7 @@ const typeColor: Record<string, string> = {
 
 export default function Bali() {
   const navigate = useNavigate();
-  const [videoOpen, setVideoOpen] = React.useState(false);
+  const [activeVideo, setActiveVideo] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -68,10 +68,10 @@ export default function Bali() {
   return (
     <div style={{ minHeight: "100vh", background: "#b8ecf5" }}>
 
-      {videoOpen && (
+      {activeVideo && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
-          onClick={() => setVideoOpen(false)}
+          onClick={() => setActiveVideo(null)}
         >
           <div
             className="relative w-full max-w-sm mx-4"
@@ -79,7 +79,7 @@ export default function Bali() {
             onClick={(e) => e.stopPropagation()}
           >
             <video
-              src="https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/bucket/c8e24840-77b1-4133-bbc9-54eee8b64ee2.MP4"
+              src={activeVideo}
               className="w-full h-full rounded-2xl"
               style={{ background: "#000" }}
               controls
@@ -87,7 +87,7 @@ export default function Bali() {
               playsInline
             />
             <button
-              onClick={() => setVideoOpen(false)}
+              onClick={() => setActiveVideo(null)}
               className="absolute -top-10 right-0 text-white/80 hover:text-white transition-colors"
             >
               <Icon name="X" size={28} />
@@ -142,7 +142,7 @@ export default function Bali() {
               <div className="relative h-48 overflow-hidden flex-shrink-0">
                 {tour.video ? (
                   <button
-                    onClick={() => setVideoOpen(true)}
+                    onClick={() => setActiveVideo(tour.video)}
                     className="block w-full h-full relative group cursor-pointer z-10"
                   >
                     <img
