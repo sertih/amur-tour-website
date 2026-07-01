@@ -1,51 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
-const SERVICES = [
-  {
-    title: "Банк данных исполнительных производств (ФССП)",
-    description: "Официальный сервис судебных приставов. Проверьте наличие исполнительных производств по вашему имени.",
-    url: "https://fssp.gov.ru/iss/ip",
-    icon: "Scale",
-    color: "#e8007a",
-  },
-  {
-    title: "Налоговая задолженность (ФНС)",
-    description: "Проверьте задолженность по налогам и сборам через личный кабинет налогоплательщика.",
-    url: "https://lkfl2.nalog.ru/lkfl/login",
-    icon: "Receipt",
-    color: "#4a0060",
-  },
-  {
-    title: "Госуслуги — все задолженности",
-    description: "Единый портал госуслуг. Проверьте все виды задолженностей в одном месте: штрафы, налоги, судебные долги.",
-    url: "https://www.gosuslugi.ru/pay/debt",
-    icon: "Shield",
-    color: "#ff8c00",
-  },
-  {
-    title: "Штрафы ГИБДД",
-    description: "Проверьте наличие неоплаченных штрафов за нарушения правил дорожного движения.",
-    url: "https://xn--90adear.xn--p1ai/check/fines",
-    icon: "Car",
-    color: "#007a40",
-  },
-  {
-    title: "Кредитная история (НБКИ)",
-    description: "Проверьте свою кредитную историю и задолженности перед банками в Национальном бюро кредитных историй.",
-    url: "https://www.nbki.ru/service/service-individuals/",
-    icon: "CreditCard",
-    color: "#0066cc",
-  },
-  {
-    title: "Задолженность ЖКХ",
-    description: "Проверьте долги за жилищно-коммунальные услуги через портал ГИС ЖКХ.",
-    url: "https://dom.gosuslugi.ru",
-    icon: "Home",
-    color: "#8b4513",
-  },
-];
-
 export default function DebtCheck() {
   const navigate = useNavigate();
 
@@ -72,64 +27,26 @@ export default function DebtCheck() {
         </div>
       </nav>
 
-      <div className="pt-24 pb-16 px-4 max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4" style={{ background: "linear-gradient(135deg, #e8007a, #4a0060)" }}>
-            <Icon name="AlertTriangle" size={28} className="text-white" />
+      <div className="min-h-screen flex items-center justify-center px-4">
+        <div className="text-center max-w-xl">
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-8" style={{ background: "linear-gradient(135deg, #e8007a, #4a0060)" }}>
+            <Icon name="AlertTriangle" size={36} className="text-white" />
           </div>
-          <h1 className="font-oswald font-bold text-3xl md:text-4xl mb-4" style={{ color: "#4a0060" }}>
-            Проверь долги перед выездом
-          </h1>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
-            Задолженности могут стать причиной запрета на выезд за рубеж. Проверьте все долги заблаговременно — за 2–4 недели до поездки.
+
+          <p className="text-2xl md:text-3xl font-semibold leading-relaxed mb-10" style={{ color: "#4a0060" }}>
+            Перед вылетом рекомендуем Вам в обязательном порядке проверить наличие задолженности
           </p>
-        </div>
 
-        <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-10 flex gap-4">
-          <Icon name="Info" size={22} className="flex-shrink-0 mt-0.5" style={{ color: "#ff8c00" }} />
-          <div>
-            <p className="font-semibold mb-1" style={{ color: "#4a0060" }}>Важно знать</p>
-            <p className="text-sm text-gray-600">Судебные приставы могут ограничить выезд при долге от 10 000 ₽. После погашения долга снятие запрета занимает до 14 дней. Проверяйте заранее!</p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {SERVICES.map((service) => (
-            <a
-              key={service.title}
-              href={service.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all group flex flex-col gap-3 border border-white/60"
-            >
-              <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: `${service.color}18` }}>
-                  <Icon name={service.icon} size={22} style={{ color: service.color }} />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-base mb-1 leading-snug group-hover:underline" style={{ color: "#4a0060" }}>
-                    {service.title}
-                  </h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">{service.description}</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-1 text-sm font-medium mt-1" style={{ color: service.color }}>
-                Перейти к проверке
-                <Icon name="ExternalLink" size={14} />
-              </div>
-            </a>
-          ))}
-        </div>
-
-        <div className="mt-10 text-center">
-          <button
-            onClick={() => navigate("/")}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-medium transition-opacity hover:opacity-90"
+          <a
+            href="https://fssp.gov.ru/iss/ip/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-3 px-12 py-5 rounded-2xl text-white font-bold text-2xl transition-opacity hover:opacity-90 shadow-lg"
             style={{ background: "linear-gradient(135deg, #e8007a, #4a0060)" }}
           >
-            <Icon name="Plane" size={16} />
-            Вернуться к турам
-          </button>
+            Здесь
+            <Icon name="ExternalLink" size={24} />
+          </a>
         </div>
       </div>
     </div>
