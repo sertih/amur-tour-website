@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import { NAV_ITEMS } from "@/components/data";
 
@@ -9,6 +10,7 @@ interface NavBarProps {
 }
 
 export default function NavBar({ activeSection, menuOpen, setMenuOpen, scrollTo }: NavBarProps) {
+  const navigate = useNavigate();
   return (
     <nav className="fixed top-0 left-0 right-0 z-50" style={{ background: "rgba(210,235,235,0.82)", backdropFilter: "blur(14px)", borderBottom: "1px solid rgba(255,255,255,0.4)" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
@@ -32,6 +34,13 @@ export default function NavBar({ activeSection, menuOpen, setMenuOpen, scrollTo 
               {item.label}
             </button>
           ))}
+          <button
+            onClick={() => navigate("/debt-check")}
+            className="text-sm font-medium uppercase tracking-wide transition-colors px-3 py-1.5 rounded-lg"
+            style={{ color: "#fff", background: "linear-gradient(135deg, #e8007a, #4a0060)" }}
+          >
+            Проверь долги
+          </button>
         </div>
 
         <button className="md:hidden rounded-lg p-2" style={{ background: "rgba(255,255,255,0.3)", color: "#3a0050" }} onClick={() => setMenuOpen(!menuOpen)}>
@@ -51,6 +60,13 @@ export default function NavBar({ activeSection, menuOpen, setMenuOpen, scrollTo 
               {item.label}
             </button>
           ))}
+          <button
+            onClick={() => navigate("/debt-check")}
+            className="text-left text-sm font-medium uppercase tracking-wide py-1"
+            style={{ color: "#e8007a" }}
+          >
+            Проверь долги
+          </button>
         </div>
       )}
     </nav>

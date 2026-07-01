@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import China from "./pages/China";
 import Bali from "./pages/Bali";
 import Vietnam from "./pages/Vietnam";
+import DebtCheck from "./pages/DebtCheck";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/china" element={<China />} />
           <Route path="/bali" element={<Bali />} />
           <Route path="/vietnam" element={<Vietnam />} />
+          <Route path="/debt-check" element={<DebtCheck />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
