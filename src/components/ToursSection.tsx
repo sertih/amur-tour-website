@@ -1,138 +1,15 @@
-import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import { REVIEWS, PEOPLE_IMG } from "@/components/data";
 
 interface ToursSectionProps {
-  onBookRoute: (title: string) => void;
+  onBookRoute?: (title: string) => void;
 }
 
-export default function ToursSection({ onBookRoute }: ToursSectionProps) {
-  const [duration, setDuration] = useState("все");
-  const [priceFrom, setPriceFrom] = useState("");
-  const [priceTo, setPriceTo] = useState("");
-  const [cityFrom, setCityFrom] = useState("");
-  const [country, setCountry] = useState("");
-
-  const resetFilters = () => {
-    setDuration("все");
-    setPriceFrom("");
-    setPriceTo("");
-    setCityFrom("");
-    setCountry("");
-  };
-
-  const handleSearch = () => {
-    onBookRoute(`Длительность: ${duration}, цена: ${priceFrom}–${priceTo}, вылет: ${cityFrom}, страна: ${country}`);
-  };
-
+export default function ToursSection(_props: ToursSectionProps) {
   return (
     <>
-      {/* AGGREGATOR */}
-      <section id="routes" className="py-24 px-4" style={{ background: "#b8ecf5" }}>
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12 reveal opacity-0-init animate-fade-up">
-            <span className="font-medium uppercase tracking-widest text-sm" style={{ color: "#e8007a" }}>Куда отправиться</span>
-            <h2 className="font-oswald text-4xl md:text-5xl font-bold mt-2 mb-4" style={{ color: "#3a0050" }}>ПОДОБРАТЬ ТУР</h2>
-            <div className="w-16 h-1 mx-auto rounded-full" style={{ background: "linear-gradient(to right, #e8007a, #ff8c00)" }} />
-          </div>
-
-          <div className="rounded-2xl p-8 reveal opacity-0-init animate-fade-up animate-delay-200" style={{ background: "rgba(195,228,228,0.5)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.6)" }}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
-                <label className="text-xs mb-2 block uppercase tracking-wide" style={{ color: "#7a4080" }}>Длительность</label>
-                <div className="flex flex-wrap gap-2">
-                  {["все", "1-7", "8-12", "13+"].map((o) => (
-                    <button
-                      key={o}
-                      onClick={() => setDuration(o)}
-                      className="text-sm px-4 py-2 rounded-lg font-medium transition-all"
-                      style={duration === o
-                        ? { background: "linear-gradient(135deg, #e8007a, #ff8c00)", color: "white" }
-                        : { background: "rgba(255,255,255,0.5)", color: "#4a0060", border: "1px solid rgba(74,0,96,0.2)" }
-                      }
-                    >
-                      {o === "все" ? "Любая" : `${o} дн.`}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <label className="text-xs mb-2 block uppercase tracking-wide" style={{ color: "#7a4080" }}>Бюджет (₽)</label>
-                <div className="flex gap-2">
-                  <input
-                    type="number"
-                    placeholder="от"
-                    value={priceFrom}
-                    onChange={(e) => setPriceFrom(e.target.value)}
-                    className="w-full rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 transition-all"
-                    style={{ background: "rgba(255,255,255,0.6)", color: "#3a0050", border: "1px solid rgba(74,0,96,0.2)" }}
-                  />
-                  <input
-                    type="number"
-                    placeholder="до"
-                    value={priceTo}
-                    onChange={(e) => setPriceTo(e.target.value)}
-                    className="w-full rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 transition-all"
-                    style={{ background: "rgba(255,255,255,0.6)", color: "#3a0050", border: "1px solid rgba(74,0,96,0.2)" }}
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="text-xs mb-2 block uppercase tracking-wide" style={{ color: "#7a4080" }}>Город вылета</label>
-                <div className="relative">
-                  <Icon name="PlaneTakeoff" size={14} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "#a060b0" } as React.CSSProperties} />
-                  <input
-                    type="text"
-                    placeholder="Например, Москва"
-                    value={cityFrom}
-                    onChange={(e) => setCityFrom(e.target.value)}
-                    className="w-full rounded-lg pl-8 pr-3 py-2 text-sm focus:outline-none focus:ring-2 transition-all"
-                    style={{ background: "rgba(255,255,255,0.6)", color: "#3a0050", border: "1px solid rgba(74,0,96,0.2)" }}
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="text-xs mb-2 block uppercase tracking-wide" style={{ color: "#7a4080" }}>Страна</label>
-                <div className="relative">
-                  <Icon name="Globe" size={14} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "#a060b0" } as React.CSSProperties} />
-                  <input
-                    type="text"
-                    placeholder="Например, Турция"
-                    value={country}
-                    onChange={(e) => setCountry(e.target.value)}
-                    className="w-full rounded-lg pl-8 pr-3 py-2 text-sm focus:outline-none focus:ring-2 transition-all"
-                    style={{ background: "rgba(255,255,255,0.6)", color: "#3a0050", border: "1px solid rgba(74,0,96,0.2)" }}
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div className="flex gap-3 mt-6">
-              <button
-                onClick={handleSearch}
-                className="btn-primary flex-1 py-3 rounded-xl font-oswald text-lg uppercase tracking-wide flex items-center justify-center gap-2"
-              >
-                <Icon name="Search" size={18} />
-                Найти туры
-              </button>
-              <button
-                onClick={resetFilters}
-                className="px-4 py-3 rounded-xl transition-all flex items-center gap-2 text-sm"
-                style={{ background: "rgba(255,255,255,0.5)", color: "#7a4080", border: "1px solid rgba(74,0,96,0.2)" }}
-              >
-                <Icon name="RotateCcw" size={14} />
-                Сбросить
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ABOUT */}
-      <section id="about" className="py-24 px-4" style={{ background: "#b8ecf5" }}>
+      <section id="routes" className="py-24 px-4" style={{ background: "#b8ecf5" }}>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="reveal opacity-0-init animate-slide-right">
