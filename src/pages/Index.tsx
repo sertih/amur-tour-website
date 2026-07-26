@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 import NavBar from "@/components/NavBar";
 import TopToursBanner from "@/components/TopToursBanner";
-import SearchFilterBar from "@/components/SearchFilterBar";
+import SearchFilterBar, { SearchFilters } from "@/components/SearchFilterBar";
+import SearchResults from "@/components/SearchResults";
 import ToursSection from "@/components/ToursSection";
 import QuizSection from "@/components/QuizSection";
 import BookingContactsSection from "@/components/BookingContactsSection";
@@ -33,6 +34,7 @@ export default function Index() {
   const [heroLoaded, setHeroLoaded] = useState(false);
   const [bookingForm, setBookingForm] = useState<BookingForm>({ name: "", phone: "", route: "", date: "", people: "2" });
   const [contactForm, setContactForm] = useState<ContactForm>({ name: "", email: "", message: "" });
+  const [searchFilters, setSearchFilters] = useState<SearchFilters | null>(null);
 
   useScrollReveal();
 
@@ -60,6 +62,11 @@ export default function Index() {
     scrollTo("booking");
   };
 
+  const handleSearch = (filters: SearchFilters) => {
+    setSearchFilters(filters);
+    setTimeout(() => document.getElementById("search-results")?.scrollIntoView({ behavior: "smooth" }), 100);
+  };
+
   return (
     <div className="min-h-screen font-montserrat text-[#3a0050] overflow-x-hidden" style={{ background: "#b8ecf5" }}>
 
@@ -72,7 +79,15 @@ export default function Index() {
 
       <TopToursBanner onBookRoute={handleBookRoute} />
 
-      <SearchFilterBar onSearch={handleBookRoute} />
+      <SearchFilterBar onSearch={handleSearch} />
+
+      {searchFilters && (
+        <SearchResults
+          filters={searchFilters}
+          onBookRoute={handleBookRoute}
+          onClose={() => setSearchFilters(null)}
+        />
+      )}
 
       {/* HERO */}
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: "#b8ecf5" }}>
