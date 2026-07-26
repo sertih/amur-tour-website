@@ -5,7 +5,7 @@ import { ru } from "date-fns/locale";
 import Icon from "@/components/ui/icon";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
-import { ROUTES } from "@/components/data";
+import { useTours } from "@/hooks/useTours";
 
 export interface SearchFilters {
   city: string;
@@ -20,7 +20,6 @@ interface SearchFilterBarProps {
 }
 
 const CITIES = ["Хабаровск", "Владивосток", "Москва", "Новосибирск", "Иркутск"];
-const COUNTRIES = ["Любая страна", ...Array.from(new Set(ROUTES.map((r) => r.title)))];
 const NIGHTS = ["Любое", "1-7", "8-12", "13+"];
 const PEOPLE = ["1 взрослый", "2 взрослых", "3 взрослых", "4+ взрослых"];
 
@@ -85,12 +84,15 @@ function DropdownField({
 }
 
 export default function SearchFilterBar({ onSearch }: SearchFilterBarProps) {
+  const { tours } = useTours();
   const [city, setCity] = useState("Хабаровск");
   const [country, setCountry] = useState("Любая страна");
   const [nights, setNights] = useState("Любое");
   const [people, setPeople] = useState("2 взрослых");
   const [dateRange, setDateRange] = useState<DateRange | undefined>(undefined);
   const [dateOpen, setDateOpen] = useState(false);
+
+  const countries = ["Любая страна", ...Array.from(new Set(tours.map((t) => t.title)))];
 
   const dateLabel = dateRange?.from
     ? dateRange.to
@@ -110,7 +112,7 @@ export default function SearchFilterBar({ onSearch }: SearchFilterBarProps) {
           style={{ background: "rgba(255,255,255,0.85)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.9)" }}
         >
           <DropdownField icon="PlaneTakeoff" label="Город вылета" value={city} options={CITIES} onSelect={setCity} />
-          <DropdownField icon="MapPin" label="Страна" value={country} options={COUNTRIES} onSelect={setCountry} borderLeft />
+          <DropdownField icon="MapPin" label="Страна" value={country} options={countries} onSelect={setCountry} borderLeft />
 
           <Popover open={dateOpen} onOpenChange={setDateOpen}>
             <PopoverTrigger asChild>

@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 import { ru } from "date-fns/locale";
 import Icon from "@/components/ui/icon";
-import { ROUTES } from "@/components/data";
+import { useTours } from "@/hooks/useTours";
 import { SearchFilters } from "@/components/SearchFilterBar";
 
 interface SearchResultsProps {
@@ -18,7 +18,9 @@ function matchesNights(duration: number, nights: string) {
 }
 
 export default function SearchResults({ filters, onBookRoute, onClose }: SearchResultsProps) {
-  const results = ROUTES.filter((r) => {
+  const { tours, loading } = useTours();
+
+  const results = tours.filter((r) => {
     const countryOk = filters.country === "Любая страна" || r.title === filters.country;
     const nightsOk = matchesNights(r.duration, filters.nights);
     return countryOk && nightsOk;
@@ -53,7 +55,15 @@ export default function SearchResults({ filters, onBookRoute, onClose }: SearchR
           </button>
         </div>
 
-        {results.length === 0 ? (
+        {loading ? (
+          <div
+            className="rounded-2xl p-10 text-center"
+            style={{ background: "rgba(255,255,255,0.6)", border: "1px solid rgba(255,255,255,0.8)" }}
+          >
+            <Icon name="Loader2" size={28} className="mx-auto mb-3 animate-spin" style={{ color: "#e8007a" }} />
+            <p style={{ color: "#4a0060" }}>Загружаем актуальные туры…</p>
+          </div>
+        ) : results.length === 0 ? (
           <div
             className="rounded-2xl p-10 text-center"
             style={{ background: "rgba(255,255,255,0.6)", border: "1px solid rgba(255,255,255,0.8)" }}

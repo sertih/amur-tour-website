@@ -1,0 +1,10 @@
+{
+  "tests": [
+    {
+      "name": "Получить список туров",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200
+    }
+  ]
+}

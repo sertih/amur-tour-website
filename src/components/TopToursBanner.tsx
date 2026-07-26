@@ -1,22 +1,36 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
-import { ROUTES } from "@/components/data";
+import { useTours } from "@/hooks/useTours";
 
 interface TopToursBannerProps {
   onBookRoute: (title: string) => void;
 }
 
 export default function TopToursBanner({ onBookRoute }: TopToursBannerProps) {
+  const { tours, loading } = useTours();
   const [active, setActive] = useState(0);
 
   useEffect(() => {
-    const t = setInterval(() => setActive((p) => (p + 1) % ROUTES.length), 5000);
+    if (tours.length === 0) return;
+    const t = setInterval(() => setActive((p) => (p + 1) % tours.length), 5000);
     return () => clearInterval(t);
-  }, []);
+  }, [tours.length]);
 
-  const tour = ROUTES[active];
-  const next = () => setActive((p) => (p + 1) % ROUTES.length);
-  const prev = () => setActive((p) => (p - 1 + ROUTES.length) % ROUTES.length);
+  if (loading || tours.length === 0) {
+    return (
+      <section className="pt-24 pb-4 px-4" style={{ background: "#b8ecf5" }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="relative rounded-3xl overflow-hidden h-[300px] md:h-[400px] flex items-center justify-center" style={{ background: "rgba(255,255,255,0.5)" }}>
+            <Icon name="Loader2" size={32} className="animate-spin" style={{ color: "#e8007a" }} />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  const tour = tours[active];
+  const next = () => setActive((p) => (p + 1) % tours.length);
+  const prev = () => setActive((p) => (p - 1 + tours.length) % tours.length);
 
   return (
     <section className="pt-24 pb-4 px-4" style={{ background: "#b8ecf5" }}>
@@ -81,7 +95,7 @@ export default function TopToursBanner({ onBookRoute }: TopToursBannerProps) {
           </button>
 
           <div className="absolute right-4 bottom-4 flex gap-1.5">
-            {ROUTES.map((_, i) => (
+            {tours.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setActive(i)}
