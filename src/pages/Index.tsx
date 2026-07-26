@@ -47,6 +47,10 @@ export default function Index() {
   const scrollTo = (id: string) => {
     setActiveSection(id);
     setMenuOpen(false);
+    if (id === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -81,8 +85,6 @@ export default function Index() {
           onClose={() => setSearchFilters(null)}
         />
       )}
-
-      <div id="home" />
 
       <ToursSection onBookRoute={handleBookRoute} />
 

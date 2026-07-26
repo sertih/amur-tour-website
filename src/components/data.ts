@@ -4,7 +4,6 @@ export const RESORT_IMG = "https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9
 
 export const NAV_ITEMS = [
   { id: "home", label: "Главная" },
-  { id: "routes", label: "Туры" },
   { id: "about", label: "О компании" },
   { id: "reviews", label: "Отзывы" },
   { id: "booking", label: "Бронирование" },
