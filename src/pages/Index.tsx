@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 import NavBar from "@/components/NavBar";
 import TopToursBanner from "@/components/TopToursBanner";
+import SearchFilterBar from "@/components/SearchFilterBar";
 import ToursSection from "@/components/ToursSection";
 import QuizSection from "@/components/QuizSection";
 import BookingContactsSection from "@/components/BookingContactsSection";
@@ -70,6 +71,8 @@ export default function Index() {
       />
 
       <TopToursBanner onBookRoute={handleBookRoute} />
+
+      <SearchFilterBar onSearch={handleBookRoute} />
 
       {/* HERO */}
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: "#b8ecf5" }}>
