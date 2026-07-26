@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 import NavBar from "@/components/NavBar";
+import TopToursBanner from "@/components/TopToursBanner";
 import ToursSection from "@/components/ToursSection";
 import QuizSection from "@/components/QuizSection";
 import BookingContactsSection from "@/components/BookingContactsSection";
@@ -67,6 +68,8 @@ export default function Index() {
         setMenuOpen={setMenuOpen}
         scrollTo={scrollTo}
       />
+
+      <TopToursBanner onBookRoute={handleBookRoute} />
 
       {/* HERO */}
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: "#b8ecf5" }}>
