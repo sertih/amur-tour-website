@@ -9,7 +9,7 @@ export default function ToursSection(_props: ToursSectionProps) {
   return (
     <>
       {/* ABOUT */}
-      <section id="routes" className="py-24 px-4" style={{ background: "#b8ecf5" }}>
+      <section id="about" className="py-24 px-4" style={{ background: "#b8ecf5" }}>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="reveal opacity-0-init animate-slide-right">

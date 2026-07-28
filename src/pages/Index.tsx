@@ -4,6 +4,7 @@ import TopToursBanner from "@/components/TopToursBanner";
 import SearchFilterBar, { SearchFilters } from "@/components/SearchFilterBar";
 import SearchResults from "@/components/SearchResults";
 import ToursSection from "@/components/ToursSection";
+import QuizSection from "@/components/QuizSection";
 import BookingContactsSection from "@/components/BookingContactsSection";
 import { BookingForm, ContactForm } from "@/components/data";
 
@@ -85,6 +86,8 @@ export default function Index() {
           onClose={() => setSearchFilters(null)}
         />
       )}
+
+      <QuizSection onBookRoute={handleBookRoute} />
 
       <ToursSection onBookRoute={handleBookRoute} />
 
