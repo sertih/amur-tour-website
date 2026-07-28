@@ -8,6 +8,20 @@ const DESTINATIONS = [
   { label: "Индонезия", icon: "Flower2", route: "/bali" },
   { label: "Сейшелы", icon: "Anchor", route: "/seychelles" },
   { label: "Япония", icon: "Cherry", route: "/japan" },
+  { label: "Ю. Корея и КНДР", icon: "Landmark", route: "/south-korea" },
+  { label: "Танзания (Занзибар)", icon: "Palmtree", route: "/zanzibar" },
+  { label: "Маврикий", icon: "Waves", route: "/mauritius" },
+  { label: "Филиппины (Боракай)", icon: "Waves", route: "/boracay" },
+  { label: "Мальдивы", icon: "Anchor", route: "/maldives" },
+  { label: "Египет", icon: "Sun", route: "/egypt" },
+  { label: "Куба", icon: "Music", route: "/cuba" },
+  { label: "Бахрейн", icon: "Building2", route: "/bahrain" },
+  { label: "ОАЭ", icon: "Building2", route: "/uae" },
+  { label: "Сингапур", icon: "Building2", route: "/singapore" },
+  { label: "Малайзия", icon: "TreePalm", route: "/malaysia" },
+  { label: "Камбоджа", icon: "Landmark", route: "/cambodia" },
+  { label: "Доминикана", icon: "Waves", route: "/dominicana" },
+  { label: "Тунис", icon: "Sun", route: "/tunisia" },
 ];
 
 interface QuizSectionProps {
