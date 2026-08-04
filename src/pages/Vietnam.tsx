@@ -58,9 +58,9 @@ const VIETNAM_TOURS = [
 ];
 
 const typeColor: Record<string, string> = {
-  пляжный: "#e8007a",
-  экскурсионный: "#4a0060",
-  городской: "#ff8c00",
+  пляжный: "#0d9488",
+  экскурсионный: "#115e59",
+  городской: "#22d3ee",
   природный: "#007a40",
   "все включено": "#0077cc",
 };
@@ -128,10 +128,10 @@ export default function Vietnam() {
           </button>
 
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ background: "linear-gradient(135deg, #e8007a, #ff8c00)" }}>
+            <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ background: "linear-gradient(135deg, #0d9488, #22d3ee)" }}>
               <Icon name="Palmtree" size={22} className="text-white" />
             </div>
-            <span className="font-medium uppercase tracking-widest text-sm" style={{ color: "#ff8c00" }}>Направление</span>
+            <span className="font-medium uppercase tracking-widest text-sm" style={{ color: "#22d3ee" }}>Направление</span>
           </div>
 
           <h1 className="font-oswald text-5xl md:text-6xl font-bold text-white mb-4">
@@ -165,7 +165,7 @@ export default function Vietnam() {
                     />
                     <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-all">
                       <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
-                        <Icon name="Play" size={24} className="ml-1" style={{ color: "#e8007a" }} />
+                        <Icon name="Play" size={24} className="ml-1" style={{ color: "#0d9488" }} />
                       </div>
                     </div>
                   </button>
@@ -174,7 +174,7 @@ export default function Vietnam() {
                 )}
                 <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(0,58,80,0.6), transparent)" }} />
                 {tour.tag && (
-                  <div className="absolute top-3 right-3 text-white text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #e8007a, #ff8c00)" }}>
+                  <div className="absolute top-3 right-3 text-white text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #0d9488, #22d3ee)" }}>
                     {tour.tag}
                   </div>
                 )}
@@ -189,13 +189,13 @@ export default function Vietnam() {
               </div>
 
               <div className="p-5 flex flex-col flex-1">
-                <p className="text-xs uppercase tracking-wide mb-1" style={{ color: "#a060b0" }}>{tour.subtitle}</p>
+                <p className="text-xs uppercase tracking-wide mb-1" style={{ color: "#0891b2" }}>{tour.subtitle}</p>
                 <h3 className="font-oswald text-xl font-bold mb-2" style={{ color: "#003a50" }}>{tour.title}</h3>
-                <p className="text-sm leading-relaxed mb-4 flex-1 whitespace-pre-line" style={{ color: "#7a4080" }}>{tour.description}</p>
+                <p className="text-sm leading-relaxed mb-4 flex-1 whitespace-pre-line" style={{ color: "#0f766e" }}>{tour.description}</p>
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {tour.highlights.map((h) => (
-                    <span key={h} className="text-xs px-2 py-1 rounded-lg" style={{ background: "rgba(232,0,122,0.1)", color: "#a0005a" }}>
+                    <span key={h} className="text-xs px-2 py-1 rounded-lg" style={{ background: "rgba(13,148,136,0.1)", color: "#0f766e" }}>
                       {h}
                     </span>
                   ))}
@@ -203,10 +203,10 @@ export default function Vietnam() {
 
                 <div className="flex items-center justify-between pt-3" style={{ borderTop: "1px solid rgba(0,74,96,0.1)" }}>
                   <div>
-                    <div className="font-oswald text-2xl font-bold" style={{ background: "linear-gradient(135deg, #e8007a, #ff8c00)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                    <div className="font-oswald text-2xl font-bold" style={{ background: "linear-gradient(135deg, #0d9488, #22d3ee)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
                       от {tour.price.toLocaleString("ru-RU")} ₽
                     </div>
-                    <div className="flex items-center gap-1 text-xs mt-0.5" style={{ color: "#a060b0" }}>
+                    <div className="flex items-center gap-1 text-xs mt-0.5" style={{ color: "#0891b2" }}>
                       <Icon name="Clock" size={11} />
                       {tour.duration} ночей
                     </div>

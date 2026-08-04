@@ -55,9 +55,9 @@ const CHINA_TOURS = [
 ];
 
 const typeColor: Record<string, string> = {
-  пляжный: "#e8007a",
-  экскурсионный: "#4a0060",
-  городской: "#ff8c00",
+  пляжный: "#0d9488",
+  экскурсионный: "#115e59",
+  городской: "#22d3ee",
   природный: "#007a40",
   "все включено": "#0077cc",
 };
@@ -108,10 +108,10 @@ export default function China() {
       {/* Header */}
       <div
         className="relative py-20 px-4 overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #3a0050 0%, #4a0060 50%, #1a0030 100%)" }}
+        style={{ background: "linear-gradient(135deg, #134e4a 0%, #115e59 50%, #1a0030 100%)" }}
       >
         <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "url(https://cdn.poehali.dev/projects/e3c4122f-0f20-43fa-9a94-a1e79f8d750a/bucket/9867595d-0b65-419f-9c55-08ea10189184.jpg)", backgroundSize: "cover", backgroundPosition: "center" }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(58,0,80,0.85), rgba(26,0,48,0.9))" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(19,78,74,0.85), rgba(26,0,48,0.9))" }} />
 
         <div className="relative max-w-5xl mx-auto">
           <button
@@ -124,10 +124,10 @@ export default function China() {
           </button>
 
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ background: "linear-gradient(135deg, #e8007a, #ff8c00)" }}>
+            <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ background: "linear-gradient(135deg, #0d9488, #22d3ee)" }}>
               <Icon name="Landmark" size={22} className="text-white" />
             </div>
-            <span className="font-medium uppercase tracking-widest text-sm" style={{ color: "#ff8c00" }}>Направление</span>
+            <span className="font-medium uppercase tracking-widest text-sm" style={{ color: "#22d3ee" }}>Направление</span>
           </div>
 
           <h1 className="font-oswald text-5xl md:text-6xl font-bold text-white mb-4">
@@ -171,7 +171,7 @@ export default function China() {
                 )}
                 <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(58,0,80,0.6), transparent)" }} />
                 {tour.tag && (
-                  <div className="absolute top-3 right-3 text-white text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #e8007a, #ff8c00)" }}>
+                  <div className="absolute top-3 right-3 text-white text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #0d9488, #22d3ee)" }}>
                     {tour.tag}
                   </div>
                 )}
@@ -217,7 +217,7 @@ export default function China() {
                     <button
                       onClick={() => bookTour(tour.title)}
                       className="px-4 py-2 rounded-xl text-sm font-medium text-white transition-all hover:opacity-90"
-                      style={{ background: "linear-gradient(135deg, #e8007a, #ff8c00)" }}
+                      style={{ background: "linear-gradient(135deg, #0d9488, #22d3ee)" }}
                     >
                       Забронировать
                     </button>
