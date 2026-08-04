@@ -1,0 +1,10 @@
+{
+  "tests": [
+    {
+      "name": "Get weather for all destinations",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200
+    }
+  ]
+}

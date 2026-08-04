@@ -24,6 +24,9 @@ import Malaysia from "./pages/Malaysia";
 import Cambodia from "./pages/Cambodia";
 import Dominicana from "./pages/Dominicana";
 import Tunisia from "./pages/Tunisia";
+import Thailand from "./pages/Thailand";
+import Seychelles from "./pages/Seychelles";
+import Japan from "./pages/Japan";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -55,6 +58,9 @@ const App = () => (
           <Route path="/cambodia" element={<Cambodia />} />
           <Route path="/dominicana" element={<Dominicana />} />
           <Route path="/tunisia" element={<Tunisia />} />
+          <Route path="/thailand" element={<Thailand />} />
+          <Route path="/seychelles" element={<Seychelles />} />
+          <Route path="/japan" element={<Japan />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
