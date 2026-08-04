@@ -8,29 +8,31 @@ interface TourRow {
   route: string;
   weatherKey: string;
   price: number | null;
+  sun: number;
+  water: number | null;
 }
 
 const TOURS: TourRow[] = [
-  { flag: "🇨🇳", label: "Китай", route: "/china", weatherKey: "china", price: 65897 },
-  { flag: "🇹🇭", label: "Таиланд", route: "/thailand", weatherKey: "thailand", price: 158211 },
-  { flag: "🇻🇳", label: "Вьетнам", route: "/vietnam", weatherKey: "vietnam", price: 173626 },
-  { flag: "🇰🇭", label: "Камбоджа", route: "/cambodia", weatherKey: "cambodia", price: null },
-  { flag: "🇹🇳", label: "Тунис", route: "/tunisia", weatherKey: "tunisia", price: null },
-  { flag: "🇲🇾", label: "Малайзия", route: "/malaysia", weatherKey: "malaysia", price: null },
-  { flag: "🇪🇬", label: "Египет", route: "/egypt", weatherKey: "egypt", price: null },
-  { flag: "🇰🇷", label: "Ю. Корея и КНДР", route: "/south-korea", weatherKey: "south-korea", price: null },
-  { flag: "🇹🇿", label: "Танзания (Занзибар)", route: "/zanzibar", weatherKey: "zanzibar", price: null },
-  { flag: "🇨🇺", label: "Куба", route: "/cuba", weatherKey: "cuba", price: null },
-  { flag: "🇸🇬", label: "Сингапур", route: "/singapore", weatherKey: "singapore", price: null },
-  { flag: "🇲🇻", label: "Мальдивы", route: "/maldives", weatherKey: "maldives", price: null },
-  { flag: "🇦🇪", label: "ОАЭ", route: "/uae", weatherKey: "uae", price: null },
-  { flag: "🇮🇩", label: "Индонезия", route: "/bali", weatherKey: "bali", price: 95000 },
-  { flag: "🇧🇭", label: "Бахрейн", route: "/bahrain", weatherKey: "bahrain", price: null },
-  { flag: "🇵🇭", label: "Филиппины (Боракай)", route: "/boracay", weatherKey: "boracay", price: null },
-  { flag: "🇲🇺", label: "Маврикий", route: "/mauritius", weatherKey: "mauritius", price: null },
-  { flag: "🇩🇴", label: "Доминикана", route: "/dominicana", weatherKey: "dominicana", price: null },
-  { flag: "🇯🇵", label: "Япония", route: "/japan", weatherKey: "japan", price: 174000 },
-  { flag: "🇸🇨", label: "Сейшелы", route: "/seychelles", weatherKey: "seychelles", price: 115661 },
+  { flag: "🇨🇳", label: "Китай", route: "/china", weatherKey: "china", price: 65897, sun: 28, water: 27 },
+  { flag: "🇹🇭", label: "Таиланд", route: "/thailand", weatherKey: "thailand", price: 158211, sun: 32, water: 29 },
+  { flag: "🇻🇳", label: "Вьетнам", route: "/vietnam", weatherKey: "vietnam", price: 173626, sun: 31, water: 28 },
+  { flag: "🇰🇭", label: "Камбоджа", route: "/cambodia", weatherKey: "cambodia", price: null, sun: 33, water: 29 },
+  { flag: "🇹🇳", label: "Тунис", route: "/tunisia", weatherKey: "tunisia", price: null, sun: 27, water: 24 },
+  { flag: "🇲🇾", label: "Малайзия", route: "/malaysia", weatherKey: "malaysia", price: null, sun: 32, water: 29 },
+  { flag: "🇪🇬", label: "Египет", route: "/egypt", weatherKey: "egypt", price: null, sun: 34, water: 25 },
+  { flag: "🇰🇷", label: "Ю. Корея и КНДР", route: "/south-korea", weatherKey: "south-korea", price: null, sun: 22, water: 20 },
+  { flag: "🇹🇿", label: "Танзания (Занзибар)", route: "/zanzibar", weatherKey: "zanzibar", price: null, sun: 29, water: 27 },
+  { flag: "🇨🇺", label: "Куба", route: "/cuba", weatherKey: "cuba", price: null, sun: 30, water: 27 },
+  { flag: "🇸🇬", label: "Сингапур", route: "/singapore", weatherKey: "singapore", price: null, sun: 31, water: 29 },
+  { flag: "🇲🇻", label: "Мальдивы", route: "/maldives", weatherKey: "maldives", price: null, sun: 30, water: 28 },
+  { flag: "🇦🇪", label: "ОАЭ", route: "/uae", weatherKey: "uae", price: null, sun: 39, water: 31 },
+  { flag: "🇮🇩", label: "Индонезия", route: "/bali", weatherKey: "bali", price: 95000, sun: 30, water: 28 },
+  { flag: "🇧🇭", label: "Бахрейн", route: "/bahrain", weatherKey: "bahrain", price: null, sun: 37, water: 30 },
+  { flag: "🇵🇭", label: "Филиппины (Боракай)", route: "/boracay", weatherKey: "boracay", price: null, sun: 31, water: 28 },
+  { flag: "🇲🇺", label: "Маврикий", route: "/mauritius", weatherKey: "mauritius", price: null, sun: 24, water: 23 },
+  { flag: "🇩🇴", label: "Доминикана", route: "/dominicana", weatherKey: "dominicana", price: null, sun: 29, water: 27 },
+  { flag: "🇯🇵", label: "Япония", route: "/japan", weatherKey: "japan", price: 174000, sun: 25, water: null },
+  { flag: "🇸🇨", label: "Сейшелы", route: "/seychelles", weatherKey: "seychelles", price: 115661, sun: 28, water: 26 },
 ];
 
 export default function QuizSection() {
@@ -56,7 +58,7 @@ export default function QuizSection() {
 
           <div>
             {TOURS.map((t, i) => {
-              const w = weather[t.weatherKey];
+              const w = weather[t.weatherKey] ?? { sun: t.sun, water: t.water };
               return (
                 <button
                   key={t.route}
@@ -75,21 +77,15 @@ export default function QuizSection() {
                   </span>
 
                   <span className="hidden sm:flex items-center gap-3 text-sm" style={{ color: "#4a0060" }}>
-                    {w ? (
-                      <>
-                        <span className="flex items-center gap-1">
-                          <Icon name="Sun" size={14} style={{ color: "#ff8c00" } as React.CSSProperties} />
-                          +{w.sun}
-                        </span>
-                        {w.water !== null && (
-                          <span className="flex items-center gap-1">
-                            <Icon name="Droplet" size={14} style={{ color: "#0090c0" } as React.CSSProperties} />
-                            +{w.water}
-                          </span>
-                        )}
-                      </>
-                    ) : (
-                      <span style={{ color: "#a060b0" }}>—</span>
+                    <span className="flex items-center gap-1">
+                      <Icon name="Sun" size={14} style={{ color: "#ff8c00" } as React.CSSProperties} />
+                      +{w.sun}
+                    </span>
+                    {w.water !== null && (
+                      <span className="flex items-center gap-1">
+                        <Icon name="Droplet" size={14} style={{ color: "#0090c0" } as React.CSSProperties} />
+                        +{w.water}
+                      </span>
                     )}
                   </span>
 
