@@ -18,7 +18,7 @@ export default function TopToursBanner({ onBookRoute }: TopToursBannerProps) {
 
   if (loading || tours.length === 0) {
     return (
-      <section className="pt-24 pb-4 px-4" style={{ background: "#b8ecf5" }}>
+      <section className="pt-24 pb-4 px-4" style={{ background: "#34dcdc" }}>
         <div className="max-w-6xl mx-auto">
           <div className="relative rounded-3xl overflow-hidden h-[300px] md:h-[400px] flex items-center justify-center" style={{ background: "rgba(255,255,255,0.5)" }}>
             <Icon name="Loader2" size={32} className="animate-spin" style={{ color: "#e8007a" }} />
@@ -33,7 +33,7 @@ export default function TopToursBanner({ onBookRoute }: TopToursBannerProps) {
   const prev = () => setActive((p) => (p - 1 + tours.length) % tours.length);
 
   return (
-    <section className="pt-24 pb-4 px-4 bg-[#34dcdc]" style={{ background: "#b8ecf5" }}>
+    <section className="pt-24 pb-4 px-4" style={{ background: "#34dcdc" }}>
       <div className="max-w-6xl mx-auto">
         <div className="relative rounded-3xl overflow-hidden h-[300px] md:h-[400px]">
           <img

@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --background: 188 71% 85%;
-    --page-bg: 188 71% 85%;
+    --background: 180 71% 53%;
+    --page-bg: 180 71% 53%;
     --foreground: 270 60% 18%;
     --card: 182 20% 91%;
     --card-foreground: 270 60% 18%;
@@ -42,7 +42,7 @@
   }
   body {
     @apply text-foreground font-montserrat;
-    background-color: #b8ecf5 !important;
+    background-color: #34dcdc !important;
     scroll-behavior: smooth;
   }
 }

@@ -20,7 +20,7 @@ export default function SimpleCountryPage({ title, icon = "Palmtree" }: SimpleCo
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: "#b8ecf5" }}>
+    <div style={{ minHeight: "100vh", background: "#34dcdc" }}>
       <div
         className="relative py-20 px-4 overflow-hidden"
         style={{ background: "linear-gradient(135deg, #003a50 0%, #004a60 50%, #001a30 100%)" }}

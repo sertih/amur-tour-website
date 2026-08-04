@@ -79,7 +79,7 @@ export default function Vietnam() {
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: "#b8ecf5" }}>
+    <div style={{ minHeight: "100vh", background: "#34dcdc" }}>
 
       {activeVideo && (
         <div

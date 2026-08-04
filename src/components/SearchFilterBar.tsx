@@ -105,7 +105,7 @@ export default function SearchFilterBar({ onSearch }: SearchFilterBarProps) {
   };
 
   return (
-    <section className="px-4 pb-4" style={{ background: "#b8ecf5" }}>
+    <section className="px-4 pb-4" style={{ background: "#34dcdc" }}>
       <div className="max-w-6xl mx-auto">
         <div
           className="rounded-2xl overflow-hidden flex flex-col lg:flex-row"

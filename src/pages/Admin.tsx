@@ -113,7 +113,7 @@ export default function Admin() {
 
   if (!token) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-4" style={{ background: "#b8ecf5" }}>
+      <div className="min-h-screen flex items-center justify-center px-4" style={{ background: "#34dcdc" }}>
         <div
           className="w-full max-w-sm rounded-2xl p-8"
           style={{ background: "rgba(255,255,255,0.85)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.9)" }}
@@ -154,7 +154,7 @@ export default function Admin() {
   }
 
   return (
-    <div className="min-h-screen font-montserrat" style={{ background: "#b8ecf5" }}>
+    <div className="min-h-screen font-montserrat" style={{ background: "#34dcdc" }}>
       <nav className="sticky top-0 z-40" style={{ background: "rgba(210,235,235,0.92)", backdropFilter: "blur(14px)", borderBottom: "1px solid rgba(255,255,255,0.4)" }}>
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="font-oswald font-bold text-lg" style={{ color: "#3a0050" }}>Управление турами</div>

@@ -66,7 +66,7 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen font-montserrat text-[#3a0050] overflow-x-hidden" style={{ background: "#b8ecf5" }}>
+    <div className="min-h-screen font-montserrat text-[#3a0050] overflow-x-hidden" style={{ background: "#34dcdc" }}>
 
       <NavBar
         activeSection={activeSection}

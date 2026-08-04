@@ -33,7 +33,7 @@ export default function SearchResults({ filters, onBookRoute, onClose }: SearchR
     : null;
 
   return (
-    <section id="search-results" className="px-4 pb-16 pt-4" style={{ background: "#b8ecf5" }}>
+    <section id="search-results" className="px-4 pb-16 pt-4" style={{ background: "#34dcdc" }}>
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
           <div>

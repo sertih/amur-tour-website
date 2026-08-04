@@ -40,7 +40,7 @@ export default function QuizSection() {
   const { weather } = useWeather();
 
   return (
-    <section id="quiz" className="py-24 px-4 bg-[#34dcdc]" style={{ background: "#b8ecf5" }}>
+    <section id="quiz" className="py-24 px-4" style={{ background: "#34dcdc" }}>
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12 reveal opacity-0-init animate-fade-up">
           <h2 className="font-oswald text-4xl md:text-5xl font-bold mt-2 mb-4" style={{ color: "#3a0050" }}>ТУРЫ ИЗ ХАБАРОВСКА</h2>
