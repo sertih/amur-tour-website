@@ -33,7 +33,7 @@ export default function TopToursBanner({ onBookRoute }: TopToursBannerProps) {
   const prev = () => setActive((p) => (p - 1 + tours.length) % tours.length);
 
   return (
-    <section className="pt-24 pb-4 px-4" style={{ background: "#b8ecf5" }}>
+    <section className="pt-24 pb-4 px-4 bg-[#34dcdc]" style={{ background: "#b8ecf5" }}>
       <div className="max-w-6xl mx-auto">
         <div className="relative rounded-3xl overflow-hidden h-[300px] md:h-[400px]">
           <img
