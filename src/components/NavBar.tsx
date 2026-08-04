@@ -15,7 +15,7 @@ export default function NavBar({ activeSection, menuOpen, setMenuOpen, scrollTo 
     <nav className="fixed top-0 left-0 right-0 z-50" style={{ background: "rgba(210,235,235,0.82)", backdropFilter: "blur(14px)", borderBottom: "1px solid rgba(255,255,255,0.4)" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => scrollTo("home")}>
-          <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "linear-gradient(135deg, #0d9488, #22d3ee)" }}>
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "linear-gradient(135deg, #e8007a, #ff8c00)" }}>
             <Icon name="Plane" size={16} className="text-white" />
           </div>
           <div className="font-oswald font-bold text-lg tracking-wider leading-none">
@@ -29,7 +29,7 @@ export default function NavBar({ activeSection, menuOpen, setMenuOpen, scrollTo 
               key={item.id}
               onClick={() => scrollTo(item.id)}
               className={`nav-link text-sm font-medium uppercase tracking-wide transition-colors ${activeSection === item.id ? "active" : ""}`}
-              style={{ color: activeSection === item.id ? "#0d9488" : "#134e4a" }}
+              style={{ color: activeSection === item.id ? "#e8007a" : "#4a0060" }}
             >
               {item.label}
             </button>
@@ -37,13 +37,13 @@ export default function NavBar({ activeSection, menuOpen, setMenuOpen, scrollTo 
           <button
             onClick={() => navigate("/debt-check")}
             className="text-sm font-medium uppercase tracking-wide transition-colors px-3 py-1.5 rounded-lg"
-            style={{ color: "#fff", background: "linear-gradient(135deg, #0d9488, #134e4a)" }}
+            style={{ color: "#fff", background: "linear-gradient(135deg, #e8007a, #4a0060)" }}
           >
             Проверь долги
           </button>
         </div>
 
-        <button className="md:hidden rounded-lg p-2" style={{ background: "rgba(255,255,255,0.3)", color: "#134e4a" }} onClick={() => setMenuOpen(!menuOpen)}>
+        <button className="md:hidden rounded-lg p-2" style={{ background: "rgba(255,255,255,0.3)", color: "#3a0050" }} onClick={() => setMenuOpen(!menuOpen)}>
           <Icon name={menuOpen ? "X" : "Menu"} size={20} />
         </button>
       </div>
@@ -55,7 +55,7 @@ export default function NavBar({ activeSection, menuOpen, setMenuOpen, scrollTo 
               key={item.id}
               onClick={() => scrollTo(item.id)}
               className="text-left text-sm font-medium uppercase tracking-wide transition-colors py-1"
-              style={{ color: "#134e4a" }}
+              style={{ color: "#4a0060" }}
             >
               {item.label}
             </button>
@@ -63,7 +63,7 @@ export default function NavBar({ activeSection, menuOpen, setMenuOpen, scrollTo 
           <button
             onClick={() => navigate("/debt-check")}
             className="text-left text-sm font-medium uppercase tracking-wide py-1"
-            style={{ color: "#0d9488" }}
+            style={{ color: "#e8007a" }}
           >
             Проверь долги
           </button>

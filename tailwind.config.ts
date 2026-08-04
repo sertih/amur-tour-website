@@ -57,12 +57,12 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				ant: {
-					dark: '#115e59',
-					navy: '#134e4a',
-					purple: '#0d9488',
-					violet: '#0f766e',
-					cyan: '#22d3ee',
-					sky: '#67e8f9',
+					dark: '#4a0060',
+					navy: '#3a0050',
+					purple: '#e8007a',
+					violet: '#ff2090',
+					cyan: '#ff8c00',
+					sky: '#ffd000',
 					light: '#b8ecf5',
 				}
 			},

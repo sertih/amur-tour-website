@@ -6,33 +6,33 @@
   :root {
     --background: 188 71% 85%;
     --page-bg: 188 71% 85%;
-    --foreground: 175 60% 15%;
+    --foreground: 270 60% 18%;
     --card: 182 20% 91%;
-    --card-foreground: 175 60% 15%;
+    --card-foreground: 270 60% 18%;
     --popover: 182 20% 91%;
-    --popover-foreground: 175 60% 15%;
-    --primary: 173 80% 32%;
+    --popover-foreground: 270 60% 18%;
+    --primary: 315 80% 52%;
     --primary-foreground: 0 0% 100%;
     --secondary: 182 18% 84%;
-    --secondary-foreground: 175 60% 15%;
+    --secondary-foreground: 270 60% 18%;
     --muted: 182 15% 86%;
-    --muted-foreground: 175 40% 30%;
-    --accent: 189 95% 43%;
+    --muted-foreground: 270 40% 35%;
+    --accent: 30 100% 55%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 182 18% 76%;
     --input: 182 18% 84%;
-    --ring: 173 80% 32%;
+    --ring: 315 80% 52%;
     --radius: 0.75rem;
     --sidebar-background: 182 20% 88%;
-    --sidebar-foreground: 175 60% 15%;
-    --sidebar-primary: 173 80% 32%;
+    --sidebar-foreground: 270 60% 18%;
+    --sidebar-primary: 315 80% 52%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 182 18% 84%;
-    --sidebar-accent-foreground: 175 60% 15%;
+    --sidebar-accent-foreground: 270 60% 18%;
     --sidebar-border: 182 18% 76%;
-    --sidebar-ring: 173 80% 32%;
+    --sidebar-ring: 315 80% 52%;
   }
 }
 
@@ -49,14 +49,14 @@
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(135deg, #0d9488 0%, #22d3ee 100%);
+    background: linear-gradient(135deg, #e8007a 0%, #ff8c00 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-gradient-cyan {
-    background: linear-gradient(135deg, #0891b2 0%, #67e8f9 100%);
+    background: linear-gradient(135deg, #ff8c00 0%, #ffd000 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -69,7 +69,7 @@
   }
 
   .glass-dark {
-    background: rgba(17, 94, 89, 0.25);
+    background: rgba(120, 40, 130, 0.25);
     backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.3);
   }
@@ -79,18 +79,18 @@
   }
   .card-hover:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 60px rgba(13, 148, 136, 0.25);
+    box-shadow: 0 20px 60px rgba(232, 0, 122, 0.25);
   }
 
   .btn-primary {
-    background: linear-gradient(135deg, #0d9488, #22d3ee);
+    background: linear-gradient(135deg, #e8007a, #ff8c00);
     color: white;
     font-weight: 600;
     transition: all 0.3s ease;
   }
   .btn-primary:hover {
-    background: linear-gradient(135deg, #0f766e, #06b6d4);
-    box-shadow: 0 8px 30px rgba(13, 148, 136, 0.4);
+    background: linear-gradient(135deg, #ff2090, #ffaa00);
+    box-shadow: 0 8px 30px rgba(232, 0, 122, 0.4);
     transform: translateY(-2px);
   }
 
@@ -105,7 +105,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(135deg, #0d9488, #22d3ee);
+    background: linear-gradient(135deg, #e8007a, #ff8c00);
     transition: width 0.3s ease;
   }
   .nav-link:hover::after,
@@ -145,15 +145,15 @@
   background: #a8c8c8;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0d9488;
+  background: #e8007a;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #22d3ee;
+  background: #ff8c00;
 }
 
 /* Selection */
 ::selection {
-  background: rgba(13, 148, 136, 0.25);
-  color: #134e4a;
+  background: rgba(232, 0, 122, 0.25);
+  color: #3a0050;
 }
