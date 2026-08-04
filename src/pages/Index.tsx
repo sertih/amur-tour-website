@@ -87,7 +87,7 @@ export default function Index() {
         />
       )}
 
-      <QuizSection onBookRoute={handleBookRoute} />
+      <QuizSection />
 
       <ToursSection onBookRoute={handleBookRoute} />
 
